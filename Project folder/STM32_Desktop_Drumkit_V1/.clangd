@@ -1,0 +1,18 @@
+CompileFlags:
+  Add:
+    - -Id:\Prog_Compilers\GNU Arm Embedded Toolchain\14.3
+      rel1\arm-none-eabi\include\c++\14.3.1
+    - -Id:\Prog_Compilers\GNU Arm Embedded Toolchain\14.3
+      rel1\arm-none-eabi\include\c++\14.3.1\arm-none-eabi\thumb\v7e-m\nofp
+    - -Id:\Prog_Compilers\GNU Arm Embedded Toolchain\14.3
+      rel1\arm-none-eabi\include\c++\14.3.1\backward
+    - -Id:\Prog_Compilers\GNU Arm Embedded Toolchain\14.3
+      rel1\lib\gcc\arm-none-eabi\14.3.1\include
+    - -Id:\Prog_Compilers\GNU Arm Embedded Toolchain\14.3
+      rel1\lib\gcc\arm-none-eabi\14.3.1\include-fixed
+    - -Id:\Prog_Compilers\GNU Arm Embedded Toolchain\14.3
+      rel1\arm-none-eabi\include
+  Remove: []
+  CompilationDatabase: ./build/Debug
+  Compiler: d:\Prog_Compilers\GNU Arm Embedded Toolchain\14.3
+    rel1\bin\arm-none-eabi-gcc.exe
