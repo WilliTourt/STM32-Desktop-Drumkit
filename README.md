@@ -14,11 +14,11 @@ The project includes complete hardware schematics, PCB files, firmware code, deb
 
 ## Document Index
 
-- [Hardware Description](hardware.md)
-- [Software Architecture & API Description](software.md)
-- [Assembly Guide](assemble.md)
-- [Debugging & Parameter Calibration](howtodebug.md)
-- [FAQ](faq.md)
+- [Hardware Description](Docs/hardware.md)
+- [Software Architecture & API Description](Docs/software.md)
+- [Assembly Guide](Docs/assemble.md)
+- [Debugging & Parameter Calibration](Docs/howtodebug.md)
+- [FAQ](Docs/faq.md)
 
 ---
 
@@ -34,11 +34,11 @@ The project includes complete hardware schematics, PCB files, firmware code, deb
 
 ## Quick Start
 
-1. Follow the [Assembly Guide](assemble.md) to complete hardware assembly.
-2. Refer to the [Hardware Description](hardware.md) for hardware circuit inspection and debugging, as well as 3D case printing.
+1. Follow the [Assembly Guide](Docs/assemble.md) to complete hardware assembly.
+2. Refer to the [Hardware Description](Docs/hardware.md) for hardware circuit inspection and debugging, as well as 3D case printing.
 3. Burn the firmware, connect the MIDI interface to the computer or other MIDI devices.
 4. After powering on, press and hold the button to turn on the device, the OLED will display the welcome screen and enter the Home page. At this point,
-5. Follow the [Usage and Debugging Guide](howtodebug.md) to complete parameter calibration and testing.
+5. Follow the [Usage and Debugging Guide](Docs/howtodebug.md) to complete parameter calibration and testing.
 
 ---
 
