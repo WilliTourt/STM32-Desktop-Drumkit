@@ -1,5 +1,76 @@
-# STM32-Desktop-Drumkit
-A A desktop MIDI electronic drumkit based on STM32F4, featuring 10 trigger sources (using piezoceramic). This is a major iteration following the ESP32 prototype version
+# STM32 Desktop Drumkit
 
+> **Language/语言**: [English](README.md) | [简体中文](README-zh-CN.md)
 
-### ...Please wait a moment. The resources are being sorted out and will be updated very soon ;)
+This is the English version of the README.
+
+## Project Overview
+
+STM32 Desktop Drumkit is a multifunctional electronic drumpad system based on STM32F4 microcontroller, supporting high-precision hit detection, native MIDI protocol output, real-time OLED status display, and multilevel menu human-machine interaction. The system includes 10 drum pads, using piezoelectric sensors and multi-channel ADC+DMA to achieve force detection, built-in customizable force curves (linear/logarithmic/exponential), threshold sensitivity adjustment, etc. It supports seamless connection with DAW, sound sources, electronic instruments, etc.
+
+The project includes complete hardware schematics, PCB files, firmware code, debugging documents, assembly guides, etc. This README file provides independent document links for each section, making it easy to access.
+
+---
+
+## Document Index
+
+- [Hardware Description](hardware.md)
+- [Software Architecture & API Description](software.md)
+- [Assembly Guide](assemble.md)
+- [Debugging & Parameter Calibration](howtodebug.md)
+- [FAQ](faq.md)
+
+---
+
+## Features
+
+- **Multichannel drum pad detection**
+- **High-speed ADC sampling and peak detection**
+- **Customizable force mapping**
+- **Standard MIDI signal transmission**
+- **OLED status display and multilevel menu system**
+
+---
+
+## Quick Start
+
+1. Follow the [Assembly Guide](assemble.md) to complete hardware assembly.
+2. Refer to the [Hardware Description](hardware.md) for hardware circuit inspection and debugging, as well as 3D case printing.
+3. Burn the firmware, connect the MIDI interface to the computer or other MIDI devices.
+4. After powering on, press and hold the button to turn on the device, the OLED will display the welcome screen and enter the Home page. At this point,
+5. Follow the [Usage and Debugging Guide](howtodebug.md) to complete parameter calibration and testing.
+
+---
+
+## Hardware Description
+
+- **Main Controller**: STM32F405RGT6
+- **Piezoelectric Ceramic Disc**: Recommended 27mm, it is advised to use twisted pairs or shielded cables for each signal line.
+- **ADC Sampling**: 12-bit precision, multiplexed
+- **OLED Display**: 128x32 resolution, I2C interface
+- **Others**: LEDs, buzzer, buttons, see the hardware schematic for peripheral interfaces.
+
+---
+
+## Source Code Structure
+
+- `cpp_main.cpp/h` : Main program entry, main loop, Pad/MIDI/UI initialization and scheduling
+- `pad.cpp/h` : Drum pad detection, force mapping, and parameter management
+- `midi.cpp/h` : MIDI communication protocol, signal transmission, automatic Note Off, connection detection
+- `oled.cpp/h` : OLED screen driver, text/variable/graphic display
+- `OneButtonTiny.cpp/h` : Multimode input detection for a single button (single click/double click/long press/multi-click)
+- `ui.cpp/h` : User interface and menu system management
+
+---
+
+## Acknowledgments
+
+- Thanks to [MoraiYanKele](https://github.com/MoraiYanKele) for providing his OLED multilevel menu library.
+- Thanks to Matthias Hertel's Arduino Onebutton library, part of its functionality has been ported to this project.
+- This project was initially inspired by [Victor2805/Homemade-electronic-drum-kit-with-arduino](https://github.com/Victor2805/Homemade-electronic-drum-kit-with-arduino).
+- Thanks to my cousin who loves percussion instruments and is experienced with DAW, he provided many modification suggestions for the prototype @[Woodbreeze](https://github.com/WoodBreeze) ;)
+- Thanks to all the authors of the open-source libraries and the DIY community for sharing their experiences.
+
+---
+
+**WilliTourt / 2025.10 V1 Release**
