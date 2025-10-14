@@ -77,6 +77,8 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 - [ ] Add PadTest feature
 - [ ] Add PadSettings fine-tuning parameters
 - [ ] Add Output related features
+- [ ] Add SSTK sensor support
+
 ...
 
 ---

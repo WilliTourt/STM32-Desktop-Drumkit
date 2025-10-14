@@ -77,6 +77,8 @@ STM32 Desktop Drumkit 是一款基于 STM32 微控制器的多功能电子鼓垫
 - [ ] 添加 PadTest 功能
 - [ ] 添加 PadSettings 微调参数功能
 - [ ] 添加 Output 相关功能
+- [ ] 添加边击传感
+
 ...
 
 ## 鸣谢
