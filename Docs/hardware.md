@@ -82,7 +82,7 @@ The connection layout are corresponding to STM32CubeMX configuration. Use CubeMX
    - Recommended method:
      - After the case is printed
      - Place the small board in position
-     - Insert OLED so pins just touch the bottom of the case notch
+     - Insert OLED so pins just touch the bottom of the case notch (noticed in [Assembly Guide](Docs/partsassemble-zh-CN.md))
 
 ## 3D Printing
 

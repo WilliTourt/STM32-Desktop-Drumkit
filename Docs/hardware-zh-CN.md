@@ -82,7 +82,7 @@ PCB所需元器件在[BOM文件夹](../Hardware/Schematic%20&%20PCB/PCB%20BOM)�
    - 建议方法：
      - 等外壳打印好后
      - 将小板放置好
-     - 将OLED插入，引脚刚好触即外壳缺口底部即可
+     - 将OLED插入，引脚刚好触即外壳缺口底部即可（稍后的[组装指南](Docs/partsassemble-zh-CN.md)中有提及）
 
 ## 3D 打印
 
