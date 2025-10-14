@@ -62,7 +62,7 @@ This is the component list needed in addition to the PCBs.
 2. Press the fastening rings firmly until there's almost no gap between the ring and main body. This is an interference fit.
    ![Fastening ring installation](../Images/Assemble/10.1.jpg)
    ![Fastening ring installation](../Images/Assemble/10.2.png)
-   *If the ring is too tight, slightly sand the ring position before installation:*
+   *If the ring is too tight, slightly sand the ring before installation:*
    ![Ring sanding](../Images/Assemble/14.jpg)
 
 3. Done!
