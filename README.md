@@ -68,6 +68,19 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 
 ---
 
+## Plans / Changelog (Since 2025.10.14)
+
+- [ ] Complete documentation
+- [ ] Optimize UI interface
+- [ ] Complete LED/BUZZER functionality
+- [ ] Complete DebugLog feature
+- [ ] Add PadTest feature
+- [ ] Add PadSettings fine-tuning parameters
+- [ ] Add Output related features
+...
+
+---
+
 ## Acknowledgments
 
 - Thanks to [MoraiYanKele](https://github.com/MoraiYanKele) for providing his OLED multilevel menu library.
