@@ -43,7 +43,7 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 2. Follow the [Assembly Guide](Docs/partsassemble.md) to complete hardware assembly. (Piezo sensor connection is also included in this step)
 3. [Software/Firmware & API Description](Docs/software.md) Check this out, burn the firmware, connect the MIDI interface to the computer or other MIDI devices.
 4. After powering on, press and hold the button to turn on the device, the OLED will display the welcome screen and enter the Home page.
-5. Follow the [Usage and Debugging Guide](Docs/howtodebug.md) to complete parameter calibration and testing.
+5. Follow the [Debugging and Calibration Guide](Docs/howtodebug.md) to complete parameter calibration and testing.
 
 ---
 

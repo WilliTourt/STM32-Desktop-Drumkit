@@ -43,4 +43,4 @@ You have obtained the `hit_threshold` and `upper_limit` parameters, now you can 
 
 ## Others
 
-I plan to optimize the code structure in future updates, create a separate config file to separate parameters from code, making it easier for users to modify.
+I plan to optimize the code structure in future updates, create a separate config file to separate parameters from code, making it easier for users to modify. :)
