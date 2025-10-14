@@ -1,4 +1,4 @@
-# STM32 Desktop Drumkit - Hardware Design
+# STM32 Desktop Drumkit - Hardware Description
 
 > This document will introduce the hardware design related to STM32 Desktop Drumkit, as well as the explanations related to PCB soldering and 3D part printing.
 

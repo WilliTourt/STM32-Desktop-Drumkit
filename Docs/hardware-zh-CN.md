@@ -1,4 +1,4 @@
-# STM32 Desktop Drumkit - 硬件设计
+# STM32 Desktop Drumkit - 硬件说明
 
 > 此文档将会介绍STM32 Desktop Drumkit的硬件设计相关，以及PCB焊接和3D件打印相关说明。
 

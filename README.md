@@ -19,10 +19,10 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 
 ## Document Index
 
-- [Hardware Design](Docs/hardware.md)
+- [Hardware Design](Docs/hardware.md): Introduce the hardware design related to STM32 Desktop Drumkit, as well as the explanations related to PCB soldering and 3D part printing.
 - [Software/Firmware/API Description](Docs/software.md)
-- [Assembly Guide](Docs/partsassemble.md)
-- [Debugging & Parameter Calibration](Docs/howtodebug.md)
+- [Assembly Guide](Docs/partsassemble.md): A detailed illustrated guide on how to assemble STM32 Desktop Drumkit.
+- [Debugging and Calibration Guide](Docs/howtodebug.md): This document guides you on how to calibrate parameters and conduct tests, etc.
 - [FAQ](Docs/faq.md)
 
 ---
