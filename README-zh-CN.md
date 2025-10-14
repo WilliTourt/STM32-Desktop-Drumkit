@@ -19,8 +19,8 @@ STM32 Desktop Drumkit 是一款基于 STM32 微控制器的多功能电子鼓垫
 
 ## 文档索引
 
-- [硬件说明](Docs/hardware-zh-CN.md)
-- [软件/固件 & API 说明](Docs/software-zh-CN.md)
+- [硬件设计](Docs/hardware-zh-CN.md)
+- [软件/固件/API 说明](Docs/software-zh-CN.md)
 - [组装指南](Docs/partsassemble-zh-CN.md)
 - [调试与参数标定](Docs/howtodebug-zh-CN.md)
 - [常见问题 FAQ](Docs/faq-zh-CN.md)
@@ -43,7 +43,7 @@ STM32 Desktop Drumkit 是一款基于 STM32 微控制器的多功能电子鼓垫
 2. 按照 [组装指南](Docs/partsassemble-zh-CN.md) 完成各部分硬件组装（包括压电传感器接入）
 3. 注意 [软件/固件 & API 说明](Docs/software-zh-CN.md) 内的说明，下载并烧录固件，连接 MIDI 接口至电脑或其他 MIDI 设备
 4. 上电后，按钮长按开机，OLED 会显示欢迎界面并进入Home页，此时
-5. 按照 [使用与调试指南](Docs/howtodebug-zh-CN.md) 完成参数标定和测试
+5. 按照 [调试与参数标定](Docs/howtodebug-zh-CN.md) 完成参数标定和测试
 
 ---
 

@@ -55,6 +55,8 @@ PCB所需元器件在[BOM文件夹](../Hardware/Schematic%20&%20PCB/PCB%20BOM)�
   - MCU
   - 4个额外的IO
 
+板上线路和STM32CubeMX配置相对应。使用CubeMX查看外设和引脚配置。
+
 ## PCB焊接注意事项
 
 ### 主板焊接注意事项

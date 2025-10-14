@@ -19,8 +19,8 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 
 ## Document Index
 
-- [Hardware Description](Docs/hardware.md)
-- [Software/Firmware & API Description](Docs/software.md)
+- [Hardware Design](Docs/hardware.md)
+- [Software/Firmware/API Description](Docs/software.md)
 - [Assembly Guide](Docs/partsassemble.md)
 - [Debugging & Parameter Calibration](Docs/howtodebug.md)
 - [FAQ](Docs/faq.md)

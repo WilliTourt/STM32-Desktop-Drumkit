@@ -29,6 +29,8 @@ Signal input/output flow:
    - Controls LEDs
    - Receives button inputs
 
+The connection layout are corresponding to STM32CubeMX configuration. Use CubeMX to see peripherals and pin configuration.
+
 ### User Interface Small Board Schematic
 ![User Interface Small Board Schematic](../Hardware/Schematic%20&%20PCB/Images/UI_Schematic.png)
 
