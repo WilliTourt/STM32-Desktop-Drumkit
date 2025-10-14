@@ -1,5 +1,8 @@
 # Hardware Design
 
+![Main Board PCB](../Hardware/Schematic%20&%20PCB/Images/MotherBoard.jpg)
+![UI Board PCB](../Hardware/Schematic%20&%20PCB/Images/UI%20Board.jpg)
+
 ## PCB Components List
 
 All required components for the PCB are listed in the BOM tables in the [BOM folder](../Hardware/Schematic%20&%20PCB/PCB%20BOM). The design files and Gerber files are also available in the [Schematic/PCB folder](../Hardware/Schematic%20&%20PCB). The PCB consists of two parts: the main board and the user interface small board.
@@ -59,6 +62,7 @@ Signal input/output flow:
 2. CH340K section:
    - R18 and C19 should be soldered as alternatives (choose one only)
    - Recommended to solder only R18 to supply 3.3v power to V3 pin (see CH340K datasheet for details)
+   ![CH340K](../Hardware/Schematic%20&%20PCB/Images/CH340K.jpg)
 3. Pay attention to diode direction in signal processing circuits
 4. All user LEDs are optional:
    - TX/RX indicators

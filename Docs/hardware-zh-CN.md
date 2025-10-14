@@ -1,5 +1,8 @@
 # 硬件设计
 
+![主板PCB图](../Hardware/Schematic%20&%20PCB/Images/MotherBoard.jpg)
+![UI小板PCB图](../Hardware/Schematic%20&%20PCB/Images/UI%20Board.jpg)
+
 ## PCB元器件清单
 
 PCB所需元器件在[BOM文件夹](../Hardware/Schematic%20&%20PCB/PCB%20BOM)的表格中均已列出。PCB的设计文件和Gerber也在[原理图/PCB文件夹](../Hardware/Schematic%20&%20PCB)中。PCB包括两部分：主板和用户交互小板。
@@ -59,6 +62,7 @@ PCB所需元器件在[BOM文件夹](../Hardware/Schematic%20&%20PCB/PCB%20BOM)�
 2. CH340K部分：
    - R18和C19焊接时请二选一
    - 推荐仅焊接R18以向V3引脚供3.3v电源（详细解释见CH340K数据手册）
+   ![CH340K](../Hardware/Schematic%20&%20PCB/Images/CH340K.jpg)
 3. 注意信号处理电路的二极管方向
 4. 所有用户LED都是可选的：
    - TX/RX指示灯
