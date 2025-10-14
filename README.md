@@ -4,18 +4,23 @@
 
 This is the English version of the README.
 
+![Drumkit Image](Images/IMG_20251013_162943.jpg)
+![Usage Example](Images/IMG_20251013_183759.jpg)
+
 ## Project Overview
 
 STM32 Desktop Drumkit is a multifunctional electronic drumpad system based on STM32F4 microcontroller, supporting high-precision hit detection, native MIDI protocol output, real-time OLED status display, and multilevel menu human-machine interaction. The system includes 10 drum pads, using piezoelectric sensors and multi-channel ADC+DMA to achieve force detection, built-in customizable force curves (linear/logarithmic/exponential), threshold sensitivity adjustment, etc. It supports seamless connection with DAW, sound sources, electronic instruments, etc.
 
 The project includes complete hardware schematics, PCB files, firmware code, debugging documents, assembly guides, etc. This README file provides independent document links for each section, making it easy to access.
 
+Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
+
 ---
 
 ## Document Index
 
 - [Hardware Description](Docs/hardware.md)
-- [Software Architecture & API Description](Docs/software.md)
+- [Software/Firmware & API Description](Docs/software.md)
 - [Assembly Guide](Docs/assemble.md)
 - [Debugging & Parameter Calibration](Docs/howtodebug.md)
 - [FAQ](Docs/faq.md)
@@ -36,8 +41,8 @@ The project includes complete hardware schematics, PCB files, firmware code, deb
 
 1. Follow the [Assembly Guide](Docs/assemble.md) to complete hardware assembly.
 2. Refer to the [Hardware Description](Docs/hardware.md) for hardware circuit inspection and debugging, as well as 3D case printing.
-3. Burn the firmware, connect the MIDI interface to the computer or other MIDI devices.
-4. After powering on, press and hold the button to turn on the device, the OLED will display the welcome screen and enter the Home page. At this point,
+3. [Software/Firmware & API Description](Docs/software.md) Check this out, burn the firmware, connect the MIDI interface to the computer or other MIDI devices.
+4. After powering on, press and hold the button to turn on the device, the OLED will display the welcome screen and enter the Home page.
 5. Follow the [Usage and Debugging Guide](Docs/howtodebug.md) to complete parameter calibration and testing.
 
 ---
