@@ -1,7 +1,10 @@
-# Hardware Design
+# STM32 Desktop Drumkit - Hardware Design
+
+> This document will introduce the hardware design related to STM32 Desktop Drumkit, as well as the explanations related to PCB soldering and 3D part printing.
 
 ![Main Board PCB](../Hardware/Schematic%20&%20PCB/Images/MotherBoard.jpg)
 ![UI Board PCB](../Hardware/Schematic%20&%20PCB/Images/UI%20Board.jpg)
+![3D Case](../Hardware/3D%20Files/ImageSW.png)
 
 ## PCB Components List
 
@@ -80,3 +83,31 @@ The connection layout are corresponding to STM32CubeMX configuration. Use CubeMX
      - After the case is printed
      - Place the small board in position
      - Insert OLED so pins just touch the bottom of the case notch
+
+## 3D Printing
+
+All related 3D files are in the [3D Files folder](../Hardware/3D%20Files). The following parts need to be printed:
+- Case ([Desktop Drumkit V1.0.step](../Hardware/3D%20Files/step%20&%203mf/Desktop%20Drumkit%20V1.0.STEP))
+- Top cover ([Drumkit Cover.step](../Hardware/3D%20Files/step%20&%203mf/Drumkit%20Cover.STEP))
+- Ride cymbal stand ([DrumpadStand_Ride.step](../Hardware/3D%20Files/step%20&%203mf/DrumpadStand_Ride.STEP))
+- 7 different sizes of drumhead fasteners ([Fasteners folder](../Hardware/3D%20Files/step%20&%203mf/Fasteners)), among which the hi-hat and high tom fasteners need to be printed twice.
+
+### 3D Printing Settings
+
+If you use Bambu Studio, you can directly use the 3mf project files I uploaded, with all slicing options pre-configured (but pay attention to switching printer and print bed options). However, the main case 3mf file was not uploaded (because the file size exceeds 100M).
+
+If you use other 3D printing software, please pay attention to the following settings:
+- Case:
+  - Supports: No need to add supports for the bottom slots, **but full supports are required for the upper fastener ring parts!!**
+  - Top shell thickness: At least **1.6mm**, the thicker the better. This ensures structural integrity when pressing the fasteners during assembly.
+  - Sparse infill: Not lower than 12%
+  - Speed: Recommended to be slightly slower
+
+- Fasteners
+  - Wall count: Fill the entire ring directly
+
+- Top cover
+  - The top cover model has very thin walls, slow down the printing speed!! You can also try Arachne wall generation.
+
+- Ride cymbal stand
+  - Normal printing, no special settings required.

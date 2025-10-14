@@ -1,7 +1,10 @@
-# 硬件设计
+# STM32 Desktop Drumkit - 硬件设计
+
+> 此文档将会介绍STM32 Desktop Drumkit的硬件设计相关，以及PCB焊接和3D件打印相关说明。
 
 ![主板PCB图](../Hardware/Schematic%20&%20PCB/Images/MotherBoard.jpg)
 ![UI小板PCB图](../Hardware/Schematic%20&%20PCB/Images/UI%20Board.jpg)
+![3D外壳图](../Hardware/3D%20Files/ImageSW.png)
 
 ## PCB元器件清单
 
@@ -80,3 +83,31 @@ PCB所需元器件在[BOM文件夹](../Hardware/Schematic%20&%20PCB/PCB%20BOM)�
      - 等外壳打印好后
      - 将小板放置好
      - 将OLED插入，引脚刚好触即外壳缺口底部即可
+
+## 3D 打印
+
+所有相关的3D文件均在[3D Files文件夹](../Hardware/3D%20Files)中。一共需要打印这些部分：
+- 外壳 ([Desktop Drumkit V1.0.step](../Hardware/3D%20Files/step%20&%203mf/Desktop%20Drumkit%20V1.0.STEP))
+- 顶板 ([Drumkit Cover.step](../Hardware/3D%20Files/step%20&%203mf/Drumkit%20Cover.STEP))
+- 叮叮镲支架 ([DrumpadStand_Ride.step](../Hardware/3D%20Files/step%20&%203mf/DrumpadStand_Ride.STEP))
+- 7种不同大小的鼓皮紧固环 ([Fasteners 文件夹](../Hardware/3D%20Files/step%20&%203mf/Fasteners))，其中踩镲和高嗵鼓的环需要打印两个。
+
+### 3D打印设置
+
+如果你使用Bambu Studio，则可以直接使用我上传的3mf项目文件，切片选项已全部配置好（但注意切换打印机和打印板选项）。但外壳主题的3mf未能上传（因文件大小大于100M）
+
+如果你使用其他3D打印软件，则需主要关注以下设置：
+- 外壳：
+  - 支撑：底部槽口无需添加支撑，**上方紧固圈部分需全部添加支撑！!**
+  - 顶部壳体厚度：至少**1.6mm**，越厚越好。需要保证之后组装时用力按压紧固环时的结构完整性。
+  - 稀疏填充：请不要低于12%
+  - 速度：建议稍慢一些
+
+- 紧固环
+  - 墙层数：请直接塞满整个环
+
+- 顶板
+  - 顶板模型含有很薄的墙，注意放慢速度！！同时可以尝试Arachne墙生成
+
+- 叮叮镲支架
+  - 正常打印即可，无需特殊设置。
