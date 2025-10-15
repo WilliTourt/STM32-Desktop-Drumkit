@@ -69,12 +69,13 @@ The connection layout are corresponding to STM32CubeMX configuration. Use CubeMX
    - Recommended to solder only R18 to supply 3.3v power to V3 pin (see CH340K datasheet for details)
    ![CH340K](../Hardware/Schematic%20&%20PCB/Images/CH340K.jpg)
 3. Pay attention to diode direction in signal processing circuits
-4. All user LEDs are optional:
+4. The 10k-68k resistors in the signal processing circuit are current-limiting resistors, 10k is recommended.
+5. All user LEDs are optional:
    - TX/RX indicators
    - MIDI IN/OUT indicators
    - MIDI USB_RDY
    - 3v3 power indicator
-5. For MCU crystal circuit, the 1M resistor can be left unsoldered
+6. For MCU crystal circuit, the 1M resistor can be left unsoldered
 
 ### UI Board
 1. OLED pin insertion depth:
