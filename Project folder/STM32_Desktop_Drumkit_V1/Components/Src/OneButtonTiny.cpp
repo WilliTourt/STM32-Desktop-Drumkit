@@ -184,13 +184,13 @@ void OneButtonTiny::_fsm(bool activeLevel) {
 			// now we know how many clicks have been made.
 
 			if (_nClicks == 1) {
-				// 单击
+				// Single click
 				if (_clickFunc) _clickFunc();
 			} else if (_nClicks == 2) {
-				// 双击
+				// Double click
 				if (_doubleClickFunc) _doubleClickFunc();
 			} else if (_nClicks > 2) {
-				// 多击
+				// Multi click
 				if (_multiClickFunc) _multiClickFunc();
 			}
 			reset();

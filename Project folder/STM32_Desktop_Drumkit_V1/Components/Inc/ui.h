@@ -75,10 +75,10 @@ class UI {
          * @param debounce_ms Debounce time in milliseconds
          * @param singleclick_maxMs Maximum time for single click
          * @param longPress_minMs Minimum time for long press
-         * @param multiClick_minMs Minimum time between multi-clicks
+         * @param multiClick_maxMs Maximum time between multi-clicks
          */
         void buttonInit(uint16_t debounce_ms, uint16_t singleclick_maxMs, 
-                      uint16_t longPress_minMs, uint16_t multiClick_minMs);
+                      uint16_t longPress_minMs, uint16_t multiClick_maxMs);
 
         /**
          * @brief Process button input

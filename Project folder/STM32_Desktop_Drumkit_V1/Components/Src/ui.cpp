@@ -173,13 +173,13 @@ void UI::updateMidiConn(bool connected) {
  * @param debounce_ms Debounce time in milliseconds
  * @param singleclick_maxMs Maximum time for single click
  * @param longPress_minMs Minimum time for long press
- * @param multiClick_minMs Minimum time between multi-clicks
+ * @param multiClick_maxMs Maximum checking time after multi-clicks
  */
-void UI::buttonInit(uint16_t debounce_ms, uint16_t singleclick_maxMs, uint16_t longPress_minMs, uint16_t multiClick_minMs) {
+void UI::buttonInit(uint16_t debounce_ms, uint16_t singleclick_maxMs, uint16_t longPress_minMs, uint16_t multiClick_maxMs) {
     _button.setDebounceMs(debounce_ms);
     _button.setClickMs(singleclick_maxMs);
     _button.setPressMs(longPress_minMs);
-    _button.setMultiClickMs(multiClick_minMs);
+    _button.setMultiClickMs(multiClick_maxMs);
 	
 	// Bind menu control callbacks
 	_button.attachClick(Callback_ButtonSingleClick);
@@ -427,8 +427,7 @@ void UI::_showMainPage() {
     static uint8_t currentInfo = 4;
     static uint32_t lastSwitchTime = 0;
     static bool shouldUpdate = true;
-    
-    // 每2秒切换到下一个信息
+
     if (HAL_GetTick() - lastSwitchTime > 3000) {
         currentInfo = (currentInfo + 1) % 5;
         lastSwitchTime = HAL_GetTick();
