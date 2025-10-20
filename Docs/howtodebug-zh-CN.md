@@ -28,7 +28,7 @@
 
 ## 正式烧录前的参数微调
 
-你刚才得到了`hit_threshold`和`upper_limit`两个参数，现在可以开始微调代码了.我已添加新的`config.h`配置文件，不再需要到处翻代码了:
+你刚才得到了`hit_threshold`和`upper_limit`两个参数，现在可以开始微调代码了。我已添加新的`config.h`配置文件，不再需要到处翻代码了:
     ![Config.h](../Images/Debug/Config.png)
 - 将`Pad Hit Threshold Settings`部分每个独立Pad的数字替换为你得到的每个传感器的静止基准ADC值。
 - 将`Pad Upper Limit Settings`部分每个Pad的数字替换为你得到的每个鼓垫的`MaxF`值。**将此值设置成稍微低于MaxF的值，以得到更好的力度映射**。
