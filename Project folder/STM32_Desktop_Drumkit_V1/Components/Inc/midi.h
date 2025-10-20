@@ -78,17 +78,17 @@
 #define LOW_TOM            45  // MIDI note number for low tom
 #define HIGH_MID_TOM       48  // MIDI note number for hi-mid tom
 #define HIGH_TOM           50  // MIDI note number for high tom
-#define CLOSED_HI_HAT      42  // MIDI note number for closed hi-hat
-#define OPEN_HI_HAT        46  // MIDI note number for open hi-hat
+#define CLOSED_HIHAT       42  // MIDI note number for closed hi-hat
+#define OPEN_HIHAT         46  // MIDI note number for open hi-hat
 #define CRASH_CYMBAL_1     49  // MIDI note number for crash cymbal 1
 #define RIDE_CYMBAL_1      51  // MIDI note number for ride cymbal 1
 #define SIDESTICK          37  // MIDI note number for side stick
 
 
-#define MIDI_CHANNELS_NUM Pad::PAD_NUM  // Number of MIDI channels (matches number of pads)
-#define NOTEOFF_DELAY_MS 20             // Delay before sending note off message in milliseconds
-#define MIDI_CHANNEL_ID 10              // Default MIDI channel ID for drumkit (channel 10 is percussion)
-#define MIDI_SEND_TIMEOUT_MS 100        // Timeout for MIDI send operations (ms)
+#define MIDI_CHANNELS_NUM Pad::PAD_NUM                  // Number of MIDI channels (matches number of pads)
+#define NOTEOFF_DELAY_MS _CFG_NOTEOFF_DELAY_MS          // Delay before sending note off message in milliseconds
+#define MIDI_CHANNEL_ID _CFG_MIDI_CHANNEL_ID            // Default MIDI channel ID for drumkit (channel 10 is percussion)
+#define MIDI_SEND_TIMEOUT_MS _CFG_MIDI_SEND_TIMEOUT_MS  // Timeout for MIDI send operations (ms)
 
 
 /**
@@ -167,8 +167,8 @@ class Midi {
          * Maps Pad::PadID to corresponding MIDI note numbers
          */
         static constexpr uint8_t _PAD_MIDI_NOTE_MAP[MIDI_CHANNELS_NUM] = {
-            OPEN_HI_HAT,        // OpenHiHat
-            CLOSED_HI_HAT,      // CloseHiHat
+            OPEN_HIHAT,        // OpenHiHat
+            CLOSED_HIHAT,      // CloseHiHat
             CRASH_CYMBAL_1,     // Crash
             RIDE_CYMBAL_1,      // Ride
             SIDESTICK,          // SideStick

@@ -10,6 +10,8 @@ extern "C"
 #include "usart.h"
 #include "adc.h"
 
+#include "config.h" // This file contains all the configuration parameters
+
 int cpp_main();
 
 #ifdef __cplusplus

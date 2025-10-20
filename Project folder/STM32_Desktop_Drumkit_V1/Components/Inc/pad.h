@@ -15,9 +15,9 @@
 
 #include "cpp_main.h"
 
-#define ADC_PAD_HIT_DEFAULT_THRESHOLD 1000 // Default threshold for pad hit detection
-#define ADC_PAD_DEFAULT_UPPER_LIMIT 4095   // Default upper limit for ADC readings
-#define ADC_MEASURING_WINDOW_MS 18         // Time window for ADC measuring in milliseconds
+#define ADC_PAD_HIT_DEFAULT_THRESHOLD 1000                      // Default threshold for pad hit detection
+#define ADC_PAD_DEFAULT_UPPER_LIMIT 4095                        // Default upper limit for ADC readings
+#define ADC_MEASURING_WINDOW_MS _CFG_PAD_MEASURING_WINDOW_MS    // Time window for ADC measuring in milliseconds
 
 #define ADC1_PAD_NUMS 4                    // Number of pads connected to ADC1
 #define ADC2_PAD_NUMS 3                    // Number of pads connected to ADC2

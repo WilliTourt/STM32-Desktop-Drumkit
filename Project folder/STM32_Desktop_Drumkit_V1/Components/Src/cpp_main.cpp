@@ -1,5 +1,7 @@
 /**
  * @file cpp_main.cpp
+ * @version 1.0.1
+ * 
  * @brief Main application logic for drumkit
  * 
  * This file implements the main application logic including:
@@ -16,6 +18,7 @@
  * @CHANGELOG:
  * - 2025-09-14: V1 plan complete, file created
  * - 2025-10-13: V1.0.0 release
+ * - 2025.10-20: Added a config header file for all configuration constants
  * 
  */
 
@@ -31,7 +34,7 @@
  * Higher values for more noisy environments, but may miss light hits.
  * Hit threshold is set as (stable_value + offset)
  */
-#define HIT_THRESHOLD_OFFSET 310
+#define HIT_THRESHOLD_OFFSET _CFG_HIT_THRESHOLD_OFFSET
 
 /**
  * @brief Initialize all drum pads
@@ -47,17 +50,17 @@
  * @param force_curve Force mapping curve type
  */
 // Initialize all drum pad instances
-//  Pad insts:   adc_group , adc_ch, out_port          		 , out_pin           , pad_id         , hit_threshold                , upper_limit(MaxF), force_curve
-Pad OpenHiHat 	(Pad::ADC_1, 0     , OPENHIHAT_OUT_GPIO_Port , OPENHIHAT_OUT_Pin , Pad::OpenHiHat , (1023 + HIT_THRESHOLD_OFFSET), 2084 			, Pad::CURVE_LINEAR);
-Pad CloseHiHat	(Pad::ADC_1, 1     , CLOSEHIHAT_OUT_GPIO_Port, CLOSEHIHAT_OUT_Pin, Pad::CloseHiHat, (580  + HIT_THRESHOLD_OFFSET), 2330 			, Pad::CURVE_LINEAR);
-Pad Crash	  	(Pad::ADC_1, 2     , CRASH_OUT_GPIO_Port	 , CRASH_OUT_Pin	 , Pad::Crash	  , (416  + HIT_THRESHOLD_OFFSET), 2801 			, Pad::CURVE_LINEAR);
-Pad Ride		(Pad::ADC_1, 3     , RIDE_OUT_GPIO_Port		 , RIDE_OUT_Pin		 , Pad::Ride	  , (302  + 100/*Special case*/ ), 1527 			, Pad::CURVE_LINEAR);
-Pad SideStick	(Pad::ADC_2, 0     , SIDESTICK_OUT_GPIO_Port , SIDESTICK_OUT_Pin , Pad::SideStick , (1629 + HIT_THRESHOLD_OFFSET), 4095 			, Pad::CURVE_LINEAR);
-Pad Kick		(Pad::ADC_2, 1     , KICK_OUT_GPIO_Port		 , KICK_OUT_Pin		 , Pad::Kick	  , (1676 + HIT_THRESHOLD_OFFSET), 3147 			, Pad::CURVE_LINEAR);
-Pad Snare		(Pad::ADC_2, 2     , SNARE_OUT_GPIO_Port	 , SNARE_OUT_Pin	 , Pad::Snare	  , (1536 + HIT_THRESHOLD_OFFSET), 2277 			, Pad::CURVE_LINEAR);
-Pad MidTom		(Pad::ADC_3, 0     , MT_OUT_GPIO_Port		 , MT_OUT_Pin		 , Pad::MidTom	  , (928  + HIT_THRESHOLD_OFFSET), 3485 			, Pad::CURVE_LINEAR);
-Pad LowTom		(Pad::ADC_3, 1     , LT_OUT_GPIO_Port		 , LT_OUT_Pin		 , Pad::LowTom	  , (1322 + HIT_THRESHOLD_OFFSET), 3273 			, Pad::CURVE_LINEAR);
-Pad HighTom		(Pad::ADC_3, 2     , HT_OUT_GPIO_Port		 , HT_OUT_Pin		 , Pad::HighTom	  , (1381 + HIT_THRESHOLD_OFFSET), 3365 			, Pad::CURVE_LINEAR);
+//  Pad insts:   adc_group , adc_ch, out_port          		 , out_pin           , pad_id         , hit_threshold           						   , upper_limit(MaxF), force_curve
+Pad OpenHiHat 	(Pad::ADC_1, 0     , OPENHIHAT_OUT_GPIO_Port , OPENHIHAT_OUT_Pin , Pad::OpenHiHat , (_CFG_OPHIHAT_HIT_THRESHOLD + HIT_THRESHOLD_OFFSET), _CFG_OPHIHAT_MAXF, (Pad::ForceMappingCurve)_CFG_OPHIHAT_FORCE_CURVE_TYPE);
+Pad CloseHiHat	(Pad::ADC_1, 1     , CLOSEHIHAT_OUT_GPIO_Port, CLOSEHIHAT_OUT_Pin, Pad::CloseHiHat, (_CFG_CLHIHAT_HIT_THRESHOLD + HIT_THRESHOLD_OFFSET), _CFG_CLHIHAT_MAXF, (Pad::ForceMappingCurve)_CFG_CLHIHAT_FORCE_CURVE_TYPE);
+Pad Crash	  	(Pad::ADC_1, 2     , CRASH_OUT_GPIO_Port	 , CRASH_OUT_Pin	 , Pad::Crash	  , (_CFG_CRASH_HIT_THRESHOLD   + HIT_THRESHOLD_OFFSET), _CFG_CRASH_H_MAXF, (Pad::ForceMappingCurve)_CFG_CRASH_FORCE_CURVE_TYPE  );
+Pad Ride		(Pad::ADC_1, 3     , RIDE_OUT_GPIO_Port		 , RIDE_OUT_Pin		 , Pad::Ride	  , (_CFG_RIDE_HIT_THRESHOLD	+ 100/*Special case*/ ), _CFG_RIDE_MAXF   , (Pad::ForceMappingCurve)_CFG_RIDE_FORCE_CURVE_TYPE   );
+Pad SideStick	(Pad::ADC_2, 0     , SIDESTICK_OUT_GPIO_Port , SIDESTICK_OUT_Pin , Pad::SideStick , (_CFG_SSTK_HIT_THRESHOLD    + HIT_THRESHOLD_OFFSET), _CFG_SSTK_MAXF   , (Pad::ForceMappingCurve)_CFG_SSTK_FORCE_CURVE_TYPE   );
+Pad Kick		(Pad::ADC_2, 1     , KICK_OUT_GPIO_Port		 , KICK_OUT_Pin		 , Pad::Kick	  , (_CFG_KICK_HIT_THRESHOLD	+ HIT_THRESHOLD_OFFSET), _CFG_KICK_MAXF   , (Pad::ForceMappingCurve)_CFG_KICK_FORCE_CURVE_TYPE   );
+Pad Snare		(Pad::ADC_2, 2     , SNARE_OUT_GPIO_Port	 , SNARE_OUT_Pin	 , Pad::Snare	  , (_CFG_SNARE_HIT_THRESHOLD   + HIT_THRESHOLD_OFFSET), _CFG_SNARE_MAXF  , (Pad::ForceMappingCurve)_CFG_SNARE_FORCE_CURVE_TYPE  );
+Pad MidTom		(Pad::ADC_3, 0     , MT_OUT_GPIO_Port		 , MT_OUT_Pin		 , Pad::MidTom	  , (_CFG_MIDTOM_HIT_THRESHOLD  + HIT_THRESHOLD_OFFSET), _CFG_MIDTOM_MAXF , (Pad::ForceMappingCurve)_CFG_MIDTOM_FORCE_CURVE_TYPE );
+Pad LowTom		(Pad::ADC_3, 1     , LT_OUT_GPIO_Port		 , LT_OUT_Pin		 , Pad::LowTom	  , (_CFG_LOWTOM_HIT_THRESHOLD  + HIT_THRESHOLD_OFFSET), _CFG_LOWTOM_MAXF , (Pad::ForceMappingCurve)_CFG_LOWTOM_FORCE_CURVE_TYPE );
+Pad HighTom		(Pad::ADC_3, 2     , HT_OUT_GPIO_Port		 , HT_OUT_Pin		 , Pad::HighTom	  , (_CFG_HIGHTOM_HIT_THRESHOLD + HIT_THRESHOLD_OFFSET), _CFG_HIGHTOM_MAXF, (Pad::ForceMappingCurve)_CFG_HIGHTOM_FORCE_CURVE_TYPE);
 /**
  * @note To reduce interference in the same ADC group,
  * the sampling time of ADC channels should be set to 480 cycles.
@@ -74,7 +77,7 @@ char dbg_buf[128]; // Debug message buffer
  * @param str Debug message string
  */
 void DBG(const char* str) {
-	HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 1000);
+	HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 100);
 }
 
 /**
@@ -93,7 +96,10 @@ void DBG(const char* str) {
  */
 int cpp_main() {
 	
-	ui.buttonInit(12, 400, 600, 900);
+	ui.buttonInit( _CFG_BUTTON_DEBOUNCE_TIME_MS,
+				   _CFG_BUTTON_SINGLECLICK_MAXTIME_MS,
+				   _CFG_BUTTON_LONGPRESS_MINTIME_MS,  
+				   _CFG_BUTTON_MULTICLICK_MAXTIME_MS );
 	
 	while (!ui.chkPower()) { ui.buttonTick(); }
 
@@ -168,7 +174,7 @@ int cpp_main() {
 				// Hit your pads (with large force) multiple times and record the maxF value.
 				// This value differs because of sensor sensitivity, drumpad fastness, and adc sampling speed.
 				// Then set the pad's upper_limit to a value slightly LESS than maxF.
-				//
+				// //
 				// sprintf(dbg_buf, "Pad %s MIDI force: %d\r\n", pads[i]->ID2Str(pads[i]->getID()), pads[i]->getForce());
 				// DBG(dbg_buf);
 				// static uint16_t maxF[Pad::PAD_NUM] = { 0 };
@@ -184,8 +190,8 @@ int cpp_main() {
 			}
 		}
 
-		// Below is for ADC value waveform debugging.
-		//
+		// //Below is for ADC value waveform debugging.
+		// //
 		// uint16_t opHihat_val, clHihat_val, crash_val, ride_val, kick_val,
 		//  		 snare_val, ssdk_val, htom_val, mtom_val, ltom_val;
 		// opHihat_val = OpenHiHat.getADCVal_DBG();
