@@ -128,11 +128,10 @@ UI::UI() :
     _midiConnected(false),
     _ledEffectsEnabled(false),
     _buzzerEnabled(true),
-    _debugLogEnabled(false),
+    _debugLogEnabled(true),
     _mode(DisplayMode::PAGE),
     _prevMode(DisplayMode::PAGE),
     _page(Page::MAIN),
-    _pads(nullptr),
     _totalHitsAll(0),
     _totalDataSent(0),
     _selectedPadID(0) {

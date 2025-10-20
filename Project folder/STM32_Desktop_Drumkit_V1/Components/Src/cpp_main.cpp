@@ -77,7 +77,9 @@ char dbg_buf[128]; // Debug message buffer
  * @param str Debug message string
  */
 void DBG(const char* str) {
-	HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 100);
+	if (ui.isDebugLogEnabled()) {
+		HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), 100);
+	}
 }
 
 /**
@@ -153,7 +155,8 @@ int cpp_main() {
 			}
 
 			if (pads[i]->isMeasurementCplt()) {
-				DBG("--\r\n");
+				sprintf(dbg_buf, "--Pad %s hit--\r\n", pads[i]->ID2Str(pads[i]->getID()));
+				DBG(dbg_buf);
 
 				ui.updatePadStats(pads[i]->getID(), 1);
 				
@@ -166,7 +169,7 @@ int cpp_main() {
 						ui.updateMidiStats();
 					}
 				} else {
-					// DBG("MIDI not connected!\r\n");
+					DBG("MIDI not connected!\r\n");
 					ui.updateMidiConn(false);
 				}
 

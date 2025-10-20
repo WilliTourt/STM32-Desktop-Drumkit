@@ -138,6 +138,12 @@ class UI {
          */
         void updateMidiConn(bool connected);
 
+        /**
+         * @brief Get current debug log status
+         * @return true if enabled, false otherwise
+         */
+        bool isDebugLogEnabled() { return _debugLogEnabled; }
+
         // Pointers to menus
         // Menutypedef* _currentMenu; // This is managed by oled-menu internally
         Menutypedef* _mainMenu;
@@ -159,9 +165,6 @@ class UI {
         DisplayMode _mode;
         DisplayMode _prevMode;
         Page _page;
-
-        // Pad数据
-        const Pad** _pads;
 
         // Stats
         uint32_t _totalHits[Pad::PAD_NUM];
