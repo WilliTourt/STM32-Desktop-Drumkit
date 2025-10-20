@@ -70,7 +70,8 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 
 ## Plans / Changelog (Since 2025.10.14)
 
-- [x] Complete documentation
+- [x] Complete documentation (2025.10.16)
+- [x] Add config.h for parameter customization (2025.10.20)
 - [ ] Optimize UI interface
 - [ ] Complete LED/BUZZER functionality
 - [ ] Complete DebugLog feature

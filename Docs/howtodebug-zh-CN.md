@@ -6,7 +6,7 @@
 
 ### 1. 检查鼓垫波形，确定基准值
 
-- 注释掉`cpp_main.cpp`中while循环的整个for循环（或所有循环中的其他内容），取消注释189-204行的代码块。不需要管"unused variables"的警告。
+- 注释掉`cpp_main.cpp`中while循环的整个for循环（或所有循环中的其他内容），取消注释195-210行的代码块。不需要管"unused variables"的警告。
     ![DBG_1](../Images/Debug/DBG_1.png)
 - 烧录固件，烧录引脚顺序从左到右为：`SWCLK`、`SWDIO`、`GND`、`3V3`。
 - 打开串口绘图仪(如SerialPlot等)，设置波特率为115200，选择正确的串口号，数据分割选择逗号。
@@ -17,7 +17,7 @@
 
 ### 2. 检查鼓垫ADC峰值
 
-- 还原代码到初始状态，然后取消注释`cpp_main.cpp`中172-180行的代码块。
+- 还原代码到初始状态，然后取消注释`cpp_main.cpp`中178-186行的代码块。
     ![DBG_2](../Images/Debug/DBG_2.png)
 - 烧录固件
 - 打开串口助手，设置波特率为115200，选择正确的串口号。
@@ -28,19 +28,21 @@
 
 ## 正式烧录前的参数微调
 
-你刚才得到了`hit_threshold`和`upper_limit`两个参数，现在可以开始微调代码了:
-    ![Code Adjustment](../Images/Debug/Code%20Adjustment.png)
-- 转到`cpp_main.cpp`中Pad实例化的位置，将`hit_threshold`中`+`号前面的数字替换为你得到的每个传感器的静止基准ADC值。
-- 将`upper_limit`的值替换为你得到的每个鼓垫的`MaxF`值。**将此值设置成稍微低于MaxF的值，以得到更好的力度映射**。
-- 如果你想的话，可以调整其他诸如`HIT_THRESHOLD_OFFSET`和`Pad::ForceMappingCurve`的值，以得到更好的触发效果和力度映射。
+你刚才得到了`hit_threshold`和`upper_limit`两个参数，现在可以开始微调代码了.我已添加新的`config.h`配置文件，不再需要到处翻代码了:
+    ![Config.h](../Images/Debug/Config.png)
+- 将`Pad Hit Threshold Settings`部分每个独立Pad的数字替换为你得到的每个传感器的静止基准ADC值。
+- 将`Pad Upper Limit Settings`部分每个Pad的数字替换为你得到的每个鼓垫的`MaxF`值。**将此值设置成稍微低于MaxF的值，以得到更好的力度映射**。
+- 如果你想的话，可以调整其他诸如`_CFG_HIT_THRESHOLD_OFFSET`和`Force Mapping Curve Settings`部分的值，以得到更好的触发效果和力度映射。
 - 烧录固件，测试效果 ;)
 
 ## 其他值的微调 （可选）
 
-- 可以尝试修改`midi.h`中的`NOTEOFF_DELAY_MS`，这个值用于延迟NoteOff事件。防止过快的NoteOn事件和NoteOff事件导致的音色跳跃。
+- 可以尝试修改`_CFG_NOTEOFF_DELAY_MS`，这个值用于延迟NoteOff事件。防止过快的NoteOn事件和NoteOff事件导致的音色跳跃。
 
-- 可以尝试修改`pad.h`中的`ADC_MEASURING_WINDOW_MS`，此值是ADC采样窗口的长度，单位为毫秒。过短的窗口会导致ADC可能得不到精确的峰值，过长的窗口会导致响应延迟。
+- 可以尝试修改`_CFG_ADC_MEASURING_WINDOW_MS`，此值是ADC采样窗口的长度，单位为毫秒。过短的窗口会导致ADC可能得不到精确的峰值，过长的窗口会导致响应延迟。
 
 ## 其他
 
-我准备在之后的更新中优化代码结构，单独建立一个config文件，将参数和代码分离，方便用户修改。 :)
+~~我准备在之后的更新中优化代码结构，单独建立一个config文件，将参数和代码分离，方便用户修改。~~
+
+已完成config.h添加，现在你可以直接在此文件中配置所有参数 :)

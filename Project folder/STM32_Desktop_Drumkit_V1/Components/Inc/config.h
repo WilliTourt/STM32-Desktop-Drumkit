@@ -39,7 +39,7 @@
 #define _CFG_HIGHTOM_HIT_THRESHOLD 1381  // High Tom
 
 // =============================================
-// Pad MaxF Settings
+// Pad Upper Limit Settings
 // =============================================
 
 /**
