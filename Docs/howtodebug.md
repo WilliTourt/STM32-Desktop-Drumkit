@@ -6,7 +6,7 @@
 
 ### 1. Check Drum Pad Waveform and Determine Baseline Values
 
-- Comment out the entire for loop (or all other content in the loop) in the while loop in `cpp_main.cpp`, and uncomment the code block on lines 195-210. Ignore the "unused variables" warning.
+- Comment out the entire for loop (or all other content in the loop) in the while loop in `cpp_main.cpp`, and uncomment the code block on lines 200-215. Ignore the "unused variables" warning.
     ![DBG_1](../Images/Debug/DBG_1.png)
 - Flash the firmware. The pin sequence for flashing from left to right is: `SWCLK`, `SWDIO`, `GND`, `3V3`.
 - Open a serial plotter (such as SerialPlot), set baud rate to 115200, select the correct COM port, and choose comma as data separator.
@@ -17,7 +17,7 @@
 
 ### 2. Check Drum Pad ADC Peaks
 
-- Restore the code to its initial state, then uncomment the code block on lines 178-186 in `cpp_main.cpp`.
+- Restore the code to its initial state, then uncomment the code block on lines 200-215 in `cpp_main.cpp`.
     ![DBG_2](../Images/Debug/DBG_2.png)
 - Flash the firmware
 - Open a serial terminal, set baud rate to 115200, select the correct COM port.

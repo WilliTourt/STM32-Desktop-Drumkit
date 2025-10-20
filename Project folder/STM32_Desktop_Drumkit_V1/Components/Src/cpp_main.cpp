@@ -144,52 +144,54 @@ int cpp_main() {
 	while (ui.chkPower()) {
 		ui.update();
 
-		for (uint8_t i = 0; i < Pad::PAD_NUM; i++) {
-			pads[i]->detectHit();
-			if (pads[i]->isTriggered()) {
-				triggered[i] = true;
-			}
-
-			if (triggered[i]) {
-				pads[i]->measureForce();
-			}
-
-			if (pads[i]->isMeasurementCplt()) {
-				sprintf(dbg_buf, "--Pad %s hit--\r\n", pads[i]->ID2Str(pads[i]->getID()));
-				DBG(dbg_buf);
-
-				ui.updatePadStats(pads[i]->getID(), 1);
-				
-				if (midi.isConnected()) {
-					if (!midi.sendNoteOn(pads[i]->getID(), pads[i]->getForce(), 10)) {
-						DBG("MIDI note sending failed!\r\n");
-					} else {
-						sprintf(dbg_buf, "MIDI Note On sent %d\r\n", pads[i]->getForce());
-						DBG(dbg_buf);
-						ui.updateMidiStats();
-					}
-				} else {
-					DBG("MIDI not connected!\r\n");
-					ui.updateMidiConn(false);
+		if (ui.getMode() == UI::DisplayMode::PAGE) {
+			for (uint8_t i = 0; i < Pad::PAD_NUM; i++) {
+				pads[i]->detectHit();
+				if (pads[i]->isTriggered()) {
+					triggered[i] = true;
 				}
 
-				// This section is for pad insts upper_limit testing. Use MaxF value for reference.
-				// Hit your pads (with large force) multiple times and record the maxF value.
-				// This value differs because of sensor sensitivity, drumpad fastness, and adc sampling speed.
-				// Then set the pad's upper_limit to a value slightly LESS than maxF.
-				// //
-				// sprintf(dbg_buf, "Pad %s MIDI force: %d\r\n", pads[i]->ID2Str(pads[i]->getID()), pads[i]->getForce());
-				// DBG(dbg_buf);
-				// static uint16_t maxF[Pad::PAD_NUM] = { 0 };
-				// uint16_t peak_val = pads[i]->getPeak_DBG();
-				// if (peak_val > maxF[i]) {
-				// 	maxF[i] = peak_val;
-				// }
-				// sprintf(dbg_buf, "MaxF for %s: %d\r\n", pads[i]->ID2Str(pads[i]->getID()), maxF[i]);
-				// DBG(dbg_buf);
+				if (triggered[i]) {
+					pads[i]->measureForce();
+				}
 
-				pads[i]->resetMeasurementCplt();
-				triggered[i] = false;
+				if (pads[i]->isMeasurementCplt()) {
+					sprintf(dbg_buf, "-- Pad %s hit --\r\n", pads[i]->ID2Str(pads[i]->getID()));
+					DBG(dbg_buf);
+
+					ui.updatePadStats(pads[i]->getID(), 1);
+					
+					if (midi.isConnected()) {
+						if (!midi.sendNoteOn(pads[i]->getID(), pads[i]->getForce(), 10)) {
+							DBG("MIDI note sending failed!\r\n");
+						} else {
+							sprintf(dbg_buf, "MIDI Note On sent %d\r\n", pads[i]->getForce());
+							DBG(dbg_buf);
+							ui.updateMidiStats();
+						}
+					} else {
+						DBG("MIDI not connected!\r\n");
+						ui.updateMidiConn(false);
+					}
+
+					// This section is for pad insts upper_limit testing. Use MaxF value for reference.
+					// Hit your pads (with large force) multiple times and record the maxF value.
+					// This value differs because of sensor sensitivity, drumpad fastness, and adc sampling speed.
+					// Then set the pad's upper_limit to a value slightly LESS than maxF.
+					// //
+					// sprintf(dbg_buf, "Pad %s MIDI force: %d\r\n", pads[i]->ID2Str(pads[i]->getID()), pads[i]->getForce());
+					// DBG(dbg_buf);
+					// static uint16_t maxF[Pad::PAD_NUM] = { 0 };
+					// uint16_t peak_val = pads[i]->getPeak_DBG();
+					// if (peak_val > maxF[i]) {
+					// 	maxF[i] = peak_val;
+					// }
+					// sprintf(dbg_buf, "MaxF for %s: %d\r\n", pads[i]->ID2Str(pads[i]->getID()), maxF[i]);
+					// DBG(dbg_buf);
+
+					pads[i]->resetMeasurementCplt();
+					triggered[i] = false;
+				}
 			}
 		}
 
@@ -216,6 +218,16 @@ int cpp_main() {
 			midi.autoNoteOff();
 		}
 		ui.updateMidiConn(midi.isConnected());
+
+		// if (ui.isBuzzerEnabled()) {
+		// 	__NOP();
+		// }
+		// if (ui.isLedEffectsEnabled()) {
+		// 	__NOP();
+		// }
+		// if (ui.isDebugLogEnabled()) {
+		// 	__NOP();
+		// }
 
 		// HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);  // This is for debugging, to see how fast the loop runs.
 	}

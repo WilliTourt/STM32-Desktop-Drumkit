@@ -127,7 +127,7 @@ UI::UI() :
     _isPowerOn(false),
     _midiConnected(false),
     _ledEffectsEnabled(false),
-    _buzzerEnabled(true),
+    _buzzerEnabled(false),
     _debugLogEnabled(true),
     _mode(DisplayMode::PAGE),
     _prevMode(DisplayMode::PAGE),
@@ -227,7 +227,6 @@ void UI::init() {
  * Handles button input and refreshes display based on current mode
  */
 void UI::update() {
-    if (!_isPowerOn) return;
     buttonTick();
     _show();
 }
@@ -287,7 +286,7 @@ void UI::_createMainMenu() {
 
 void UI::_createSettingsMenu() {
     AddMenuItem(_settingsMenu, "1 Pad Settings", Callback_PadSettingMenuItem, NULL, NONE_CTRL, NULL);
-    AddMenuItem(_settingsMenu, "2 LED Effects(NA", FunctionForCtrl, NULL, SWITCH_CTRL, (int*)&_ledEffectsEnabled);
+    AddMenuItem(_settingsMenu, "2 LED", FunctionForCtrl, NULL, SWITCH_CTRL, (int*)&_ledEffectsEnabled);
     AddMenuItem(_settingsMenu, "3 Buzzer", FunctionForCtrl, NULL, SWITCH_CTRL, (int*)&_buzzerEnabled);
     AddMenuItem(_settingsMenu, "4 Debug Log", FunctionForCtrl, NULL, SWITCH_CTRL, (int*)&_debugLogEnabled);
 }

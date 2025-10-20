@@ -39,18 +39,18 @@ class UI {
          * @brief Display operation modes
          */
         enum class DisplayMode {
-            PAGE,   ///< Real-time page display mode
-            MENU    ///< Menu navigation mode (pads disabled)
+            PAGE,   // Real-time page display mode
+            MENU    // Menu navigation mode (pads disabled)
         };
 
         /**
          * @brief Available display pages
          */
         enum class Page {
-            MAIN,         ///< Main status page
-            PAD_TEST,     ///< Pad test page
-            PAD_SETTING,  ///< Pad configuration page
-            STATS         ///< Statistics page
+            MAIN,         // Main status page
+            PAD_TEST,     // Pad test page
+            PAD_SETTING,  // Pad configuration page
+            STATS         // Statistics page
         };
 
         /**
@@ -139,9 +139,11 @@ class UI {
         void updateMidiConn(bool connected);
 
         /**
-         * @brief Get current debug log status
+         * @brief Get current settings status
          * @return true if enabled, false otherwise
          */
+        bool isLedEffectsEnabled() { return _ledEffectsEnabled; }
+        bool isBuzzerEnabled() { return _buzzerEnabled; }
         bool isDebugLogEnabled() { return _debugLogEnabled; }
 
         // Pointers to menus
