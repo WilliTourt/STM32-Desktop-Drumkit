@@ -74,7 +74,7 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 - [x] Add config.h for parameter customization (2025.10.20)
 - [ ] Optimize UI interface
 - [ ] Complete LED/BUZZER functionality
-- [ ] Complete DebugLog feature
+- [x] Complete DebugLog feature (2025.10.20)
 - [ ] Add PadTest feature
 - [ ] Add PadSettings fine-tuning parameters
 - [ ] Add Output related features
