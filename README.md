@@ -9,6 +9,8 @@ This is the English version of the README.
 
 ## Project Overview
 
+*Current Version: v1.0.2*
+
 STM32 Desktop Drumkit is a multifunctional electronic drumpad system based on STM32F4 microcontroller, supporting high-precision hit detection, native MIDI protocol output, real-time OLED status display, and multilevel menu human-machine interaction. The system includes 10 drum pads, using piezoelectric sensors and multi-channel ADC+DMA to achieve force detection, built-in customizable force curves (linear/logarithmic/exponential), threshold sensitivity adjustment, etc. It supports seamless connection with DAW, sound sources, electronic instruments, etc.
 
 The project includes complete hardware schematics, PCB files, firmware code, debugging documents, assembly guides, etc. This README file provides independent document links for each section, making it easy to access.
@@ -79,7 +81,7 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 - [ ] Add PadSettings fine-tuning parameters
 - [ ] Add Output related features
 - [ ] Add SSTK sensor support
-
+- [ ] Add 3D file of the base plate bracket
 ...
 
 ---

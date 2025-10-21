@@ -2,12 +2,12 @@
 
 > **Language/语言**: [English](README.md) | [简体中文](README-zh-CN.md)
 
-这是README的中文版本。
-
 ![Drumkit Image](Images/IMG_20251013_162943.jpg)
 ![Usage Example](Images/IMG_20251013_183759.jpg)
 
 ## 项目简介
+
+*当前版本：v1.0.2*
 
 STM32 Desktop Drumkit 是一款基于 STM32 微控制器的多功能电子鼓垫系统，支持高精度击打采集、原生 MIDI 协议输出、实时 OLED 状态显示和多级菜单人机交互。系统包含 10 路鼓垫，采用压电传感器和多路 ADC+DMA 实现力度检测，内置自定义力度曲线（线性/对数/指数）、阈值灵敏度调节等。支持与 DAW、音源、电子乐器等无缝连接。
 
@@ -79,6 +79,7 @@ STM32 Desktop Drumkit 是一款基于 STM32 微控制器的多功能电子鼓垫
 - [ ] 添加 PadSettings 微调参数功能
 - [ ] 添加 Output 相关功能
 - [ ] 添加边击传感
+- [ ] 上传底板支架3D文件
 
 ...
 
