@@ -17,7 +17,7 @@
 
 ### 2. Check Drum Pad ADC Peaks
 
-- Restore the code to its initial state, then uncomment the code block on lines 200-215 in `cpp_main.cpp`.
+- Restore the code to its initial state, then uncomment the code block on lines 182-190 in `cpp_main.cpp`.
     ![DBG_2](../Images/Debug/DBG_2.png)
 - Flash the firmware
 - Open a serial terminal, set baud rate to 115200, select the correct COM port.
@@ -45,4 +45,6 @@ You have obtained the `hit_threshold` and `upper_limit` parameters, now you can 
 
 ~~I plan to optimize the code structure in future updates, create a separate config file to separate parameters from code, making it easier for users to modify.~~
 
-The config.h has been added, now you can directly configure all parameters in this file :)
+*The config.h has been added, now you can directly configure all parameters in this file :)*
+
+Also, if you feel that the force feedback of a certain drum pad is not good during subsequent use, you can come back and recalibrate the parameters again.
