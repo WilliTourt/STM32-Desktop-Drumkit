@@ -1,6 +1,6 @@
 /**
  * @file cpp_main.cpp
- * @version 1.0.1
+ * @version 1.0.2
  * 
  * @brief Main application logic for drumkit
  * 
@@ -105,7 +105,6 @@ int cpp_main() {
 				   _CFG_BUTTON_MULTICLICK_MAXTIME_MS );
 	
 	while (!ui.chkPower()) { ui.buttonTick(); }
-
 	DBG("Power on.\r\n");
 
 	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)Pad::adc1_buf, ADC1_PAD_NUMS);
