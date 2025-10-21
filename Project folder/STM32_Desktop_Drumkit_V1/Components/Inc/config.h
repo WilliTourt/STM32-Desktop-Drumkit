@@ -20,23 +20,23 @@
  * @brief Global offset applied to all pad hit thresholds
  * @note Value range: 0-4095 (12-bit ADC range)
  */
-#define _CFG_HIT_THRESHOLD_OFFSET 310
+#define _CFG_HIT_THRESHOLD_OFFSET 300
 
 /**
  * @brief Individual pad hit thresholds (ADC values)
  * @note Values should be above noise level but below max playing force
  * @note Typical range: 300-2000 (12-bit ADC)
  */
-#define _CFG_OPHIHAT_HIT_THRESHOLD 1023  // Open Hi-Hat
-#define _CFG_CLHIHAT_HIT_THRESHOLD 580   // Closed Hi-Hat 
-#define _CFG_CRASH_HIT_THRESHOLD   416   // Crash Cymbal
-#define _CFG_RIDE_HIT_THRESHOLD	   302   // Ride Cymbal
-#define _CFG_SSTK_HIT_THRESHOLD    1629  // Side Stick
-#define _CFG_KICK_HIT_THRESHOLD	   1676  // Kick Drum
-#define _CFG_SNARE_HIT_THRESHOLD   1536  // Snare Drum
-#define _CFG_MIDTOM_HIT_THRESHOLD  928   // Mid Tom
-#define _CFG_LOWTOM_HIT_THRESHOLD  1322  // Low Tom
-#define _CFG_HIGHTOM_HIT_THRESHOLD 1381  // High Tom
+#define _CFG_OPHIHAT_HIT_THRESHOLD 999   // Open Hi-Hat
+#define _CFG_CLHIHAT_HIT_THRESHOLD 605   // Closed Hi-Hat 
+#define _CFG_CRASH_HIT_THRESHOLD   445   // Crash Cymbal
+#define _CFG_RIDE_HIT_THRESHOLD	   383   // Ride Cymbal
+#define _CFG_SSTK_HIT_THRESHOLD    1633  // Side Stick
+#define _CFG_KICK_HIT_THRESHOLD	   1667  // Kick Drum
+#define _CFG_SNARE_HIT_THRESHOLD   1573  // Snare Drum
+#define _CFG_MIDTOM_HIT_THRESHOLD  989   // Mid Tom
+#define _CFG_LOWTOM_HIT_THRESHOLD  1281  // Low Tom
+#define _CFG_HIGHTOM_HIT_THRESHOLD 1367  // High Tom
 
 // =============================================
 // Pad Upper Limit Settings

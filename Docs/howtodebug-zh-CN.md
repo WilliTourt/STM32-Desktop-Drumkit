@@ -32,7 +32,7 @@
     ![Config.h](../Images/Debug/Config.png)
 - 将`Pad Hit Threshold Settings`部分每个独立Pad的数字替换为你得到的每个传感器的静止基准ADC值。
 - 将`Pad Upper Limit Settings`部分每个Pad的数字替换为你得到的每个鼓垫的`MaxF`值。**将此值设置成稍微低于MaxF的值，以得到更好的力度映射**。
-- 如果你想的话，可以调整其他诸如`_CFG_HIT_THRESHOLD_OFFSET`和`Force Mapping Curve Settings`部分的值，以得到更好的触发效果和力度映射。
+- 如果你想的话，可以调整其他诸如`_CFG_HIT_THRESHOLD_OFFSET`和`Force Mapping Curve Settings`部分的值，以得到更好的触发效果和力度映射。`_CFG_HIT_THRESHOLD_OFFSET`的调整技巧是：使用串口绘图仪，在第1步骤时，敲击各个传感器，观察它们的波形跳变幅度，然后**重点观察串扰现象，将`_CFG_HIT_THRESHOLD_OFFSET`调整到你敲击的传感器能轻松触发，且高于含串扰的传感器的最大峰值的位置**。如果你发现有些传感器跳变幅度特别小或是特别大，也可以单独在`cpp_main.cpp`中写它们的偏移值（如当前代码中的`/*Special case*/`处）。
 - 烧录固件，测试效果 ;)
 
 ## 其他值的微调 （可选）
