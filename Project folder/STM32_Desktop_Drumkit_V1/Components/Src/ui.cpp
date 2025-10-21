@@ -127,7 +127,7 @@ UI::UI() :
     _isPowerOn(false),
     _midiConnected(false),
     _ledEffectsEnabled(false),
-    _buzzerEnabled(false),
+    _buzzerEnabled(true),
     _debugLogEnabled(true),
     _mode(DisplayMode::PAGE),
     _prevMode(DisplayMode::PAGE),
@@ -219,6 +219,8 @@ void UI::init() {
 
     // Initialize menu system
     OLEDUI_Init();
+
+    buzzer.on(_buzzerEnabled);
 }
 
 /**
@@ -293,7 +295,7 @@ void UI::_createSettingsMenu() {
 
 void UI::_createAboutMenu() {
     AddMenuItem(_aboutMenu, "STM32 DesktopDrumkit", NULL, NULL, NONE_CTRL, NULL);
-    AddMenuItem(_aboutMenu, "     - Version 1.0.0", NULL, NULL, NONE_CTRL, NULL);
+    AddMenuItem(_aboutMenu, "     - Version 1.0.2", NULL, NULL, NONE_CTRL, NULL);
     AddMenuItem(_aboutMenu, "Author: WilliTourt", NULL, NULL, NONE_CTRL, NULL);
     AddMenuItem(_aboutMenu, "Email: willitourt@", NULL, NULL, NONE_CTRL, NULL);
     AddMenuItem(_aboutMenu, "       foxmail.com", NULL, NULL, NONE_CTRL, NULL);
@@ -413,12 +415,16 @@ void UI::_createAboutMenu() {
 // }
 
 void UI::welcome() {
+    // ui.buzzer.on(true);
+    // ui.buzzer.setFreq(1000);
+	// ui.buzzer.play(true);
     _oled.printText(0, 0, "STM32 Desktop Drumkit", 8);
     _oled.printText(0, 1, "> Initializing...", 8);
     _oled.printText(36, 2, "WELCOME!", 16);
     // _oled.printImage(0, 0, 40, 32, _oled.ST);
-    HAL_Delay(2000);
+    HAL_Delay(1200);
     _oled.clear();
+    // ui.buzzer.on(false);
 }
 
 void UI::_showMainPage() {
@@ -504,4 +510,60 @@ void UI::_showStatsPage() {
     //         Pad::ID2Str((Pad::PadID)currentPad),
     //         _avgForce[currentPad]);
     // _oled.printText(0, 3, buf, 8);
+}
+
+#define TIM_UPDATE_FREQ 10000 // TIM2 update rate (Hz), hardcoded in CubeMX setting
+#define BUZZER_DEFAULT_FREQ _CFG_BUZZER_DEFAULT_FREQ
+
+UI::Buzzer::Buzzer() :
+    _isPlaying(false),
+    _cnt(0),
+    _freqHz(BUZZER_DEFAULT_FREQ),
+    _toggleTick(0) {}
+
+void UI::Buzzer::on(bool isOn) {
+    if (isOn) {
+        HAL_TIM_Base_Start_IT(&htim2);
+    } else {
+        HAL_TIM_Base_Stop_IT(&htim2);
+        _isPlaying = false;
+        HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+    }
+}
+
+void UI::Buzzer::setFreq(uint16_t freq) {
+    if (freq > TIM_UPDATE_FREQ || freq == 0) {
+        return;
+    }
+
+    _freqHz = freq;
+    _toggleTick = TIM_UPDATE_FREQ / _freqHz / 2;
+}
+
+void UI::Buzzer::play(bool isOn) {
+    _isPlaying = isOn;
+
+    if (!isOn) {
+        HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+    }
+}
+
+void UI::Buzzer::_toggle_IRQ() {
+    if (!_isPlaying) return;
+
+    _cnt++;
+    if (_cnt >= _toggleTick) {
+        _cnt = 0;
+        HAL_GPIO_TogglePin(BUZZER_GPIO_Port, BUZZER_Pin);
+    }
+}
+
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	if (htim->Instance == TIM2) {
+		if (ui.isBuzzerEnabled()) {
+            ui.buzzer._toggle_IRQ();
+		}
+	}
 }

@@ -23,6 +23,7 @@
  */
 
 #include "cpp_main.h"
+#include "adc.h"
 #include "pad.h"
 #include "midi.h"
 #include "ui.h"

@@ -47,7 +47,7 @@ targets:
             language-cpp: c++11
             one-elf-section-per-data: true
             one-elf-section-per-function: true
-            optimization: level-0
+            optimization: level-debug
             warnings: all-warnings
           global:
             $float-abi-type: hard

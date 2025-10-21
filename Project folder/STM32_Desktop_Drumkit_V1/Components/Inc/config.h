@@ -135,3 +135,9 @@
  *       it is skiped and midi status will become "Disconnected"
  */
 #define _CFG_MIDI_SEND_TIMEOUT_MS 100 
+
+// =============================================
+// Other Settings
+// =============================================
+
+#define _CFG_BUZZER_DEFAULT_FREQ 1000  // Default buzzer frequency (Hz)

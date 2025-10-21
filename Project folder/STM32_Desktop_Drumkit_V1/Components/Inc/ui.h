@@ -15,6 +15,7 @@
 #pragma once
 
 #include "cpp_main.h"
+#include "tim.h"
 #include "pad.h"
 #include "midi.h"
 #include "OneButtonTiny.h"
@@ -51,6 +52,26 @@ class UI {
             PAD_TEST,     // Pad test page
             PAD_SETTING,  // Pad configuration page
             STATS         // Statistics page
+        };
+
+        class Buzzer {
+            public:
+                Buzzer();
+
+                void on(bool isOn);             // Start timer interrupt and configure pin
+                void setFreq(uint16_t freq);    // Set desired buzzer frequency in Hz
+                void play(bool isOn);           // Start/stop buzzer
+
+            private:
+                // Called from TIM IRQ context to advance software PWM state
+                void _toggle_IRQ();
+
+                volatile bool _isPlaying;       // Whether buzzer should output
+                volatile uint16_t _cnt;         // tick counter
+                uint16_t _freqHz;               // Configured frequency in Hz
+                volatile uint16_t _toggleTick;
+
+                friend void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
         };
 
         /**
@@ -153,7 +174,10 @@ class UI {
         Menutypedef* _statsMenu;
         Menutypedef* _aboutMenu;
 
+        Buzzer buzzer = Buzzer();
+
     private:
+
         OneButtonTiny _button = OneButtonTiny(KEY_PRESS_GPIO_Port, KEY_PRESS_Pin, true);
         OLED _oled = OLED(&hi2c1, 32); // OLED instance to draw page content
 
