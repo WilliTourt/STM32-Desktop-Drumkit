@@ -20,7 +20,7 @@
  * @brief Global offset applied to all pad hit thresholds
  * @note Value range: 0-4095 (12-bit ADC range)
  */
-#define _CFG_HIT_THRESHOLD_OFFSET 150
+#define _CFG_HIT_THRESHOLD_OFFSET 115
 
 /**
  * @brief Individual pad hit thresholds (ADC values)
@@ -96,7 +96,7 @@
  */
 #define _CFG_FORBID_LOW_VELOCITY true
 
-#define _CFG_LOW_VELOCITY_THRESHOLD 50
+#define _CFG_LOW_VELOCITY_THRESHOLD 58
 
 // =============================================
 // Button Settings

@@ -20,7 +20,8 @@
  * - 2025-10-13: V1.0.0 release
  * - 2025.10-20: Added a config header file for all configuration constants
  * - 2025.10-21: Added buzzer class support
- * - 2025.10.25: Added _CFG_FORBID_LOW_VELOCITY option to optimize low velocity detection
+ * - 2025.10.25: Added _CFG_FORBID_LOW_VELOCITY option to optimize low velocity detection,
+ * 				 and a multiplier for the hit threshold offset.
  * 
  */
 
@@ -53,17 +54,17 @@
  * @param force_curve Force mapping curve type
  */
 // Initialize all drum pad instances
-//  Pad insts:   adc_group , adc_ch, out_port          		 , out_pin           , pad_id         , hit_threshold           						   , upper_limit(MaxF), force_curve
-Pad OpenHiHat 	(Pad::ADC_1, 0     , OPENHIHAT_OUT_GPIO_Port , OPENHIHAT_OUT_Pin , Pad::OpenHiHat , (_CFG_OPHIHAT_HIT_THRESHOLD + HIT_THRESHOLD_OFFSET), _CFG_OPHIHAT_MAXF, (Pad::ForceMappingCurve)_CFG_OPHIHAT_FORCE_CURVE_TYPE);
-Pad CloseHiHat	(Pad::ADC_1, 1     , CLOSEHIHAT_OUT_GPIO_Port, CLOSEHIHAT_OUT_Pin, Pad::CloseHiHat, (_CFG_CLHIHAT_HIT_THRESHOLD + HIT_THRESHOLD_OFFSET), _CFG_CLHIHAT_MAXF, (Pad::ForceMappingCurve)_CFG_CLHIHAT_FORCE_CURVE_TYPE);
-Pad Crash	  	(Pad::ADC_1, 2     , CRASH_OUT_GPIO_Port	 , CRASH_OUT_Pin	 , Pad::Crash	  , (_CFG_CRASH_HIT_THRESHOLD   + 120/*Special case*/ ), _CFG_CRASH_H_MAXF, (Pad::ForceMappingCurve)_CFG_CRASH_FORCE_CURVE_TYPE  );
-Pad Ride		(Pad::ADC_1, 3     , RIDE_OUT_GPIO_Port		 , RIDE_OUT_Pin		 , Pad::Ride	  , (_CFG_RIDE_HIT_THRESHOLD	+ 80 /*Special case*/ ), _CFG_RIDE_MAXF   , (Pad::ForceMappingCurve)_CFG_RIDE_FORCE_CURVE_TYPE   );
-Pad SideStick	(Pad::ADC_2, 0     , SIDESTICK_OUT_GPIO_Port , SIDESTICK_OUT_Pin , Pad::SideStick , (_CFG_SSTK_HIT_THRESHOLD    + HIT_THRESHOLD_OFFSET), _CFG_SSTK_MAXF   , (Pad::ForceMappingCurve)_CFG_SSTK_FORCE_CURVE_TYPE   );
-Pad Kick		(Pad::ADC_2, 1     , KICK_OUT_GPIO_Port		 , KICK_OUT_Pin		 , Pad::Kick	  , (_CFG_KICK_HIT_THRESHOLD	+ 80 /*Special case*/ ), _CFG_KICK_MAXF   , (Pad::ForceMappingCurve)_CFG_KICK_FORCE_CURVE_TYPE   );
-Pad Snare		(Pad::ADC_2, 2     , SNARE_OUT_GPIO_Port	 , SNARE_OUT_Pin	 , Pad::Snare	  , (_CFG_SNARE_HIT_THRESHOLD   + HIT_THRESHOLD_OFFSET), _CFG_SNARE_MAXF  , (Pad::ForceMappingCurve)_CFG_SNARE_FORCE_CURVE_TYPE  );
-Pad MidTom		(Pad::ADC_3, 0     , MT_OUT_GPIO_Port		 , MT_OUT_Pin		 , Pad::MidTom	  , (_CFG_MIDTOM_HIT_THRESHOLD  + HIT_THRESHOLD_OFFSET), _CFG_MIDTOM_MAXF , (Pad::ForceMappingCurve)_CFG_MIDTOM_FORCE_CURVE_TYPE );
-Pad LowTom		(Pad::ADC_3, 1     , LT_OUT_GPIO_Port		 , LT_OUT_Pin		 , Pad::LowTom	  , (_CFG_LOWTOM_HIT_THRESHOLD  + HIT_THRESHOLD_OFFSET), _CFG_LOWTOM_MAXF , (Pad::ForceMappingCurve)_CFG_LOWTOM_FORCE_CURVE_TYPE );
-Pad HighTom		(Pad::ADC_3, 2     , HT_OUT_GPIO_Port		 , HT_OUT_Pin		 , Pad::HighTom	  , (_CFG_HIGHTOM_HIT_THRESHOLD + HIT_THRESHOLD_OFFSET), _CFG_HIGHTOM_MAXF, (Pad::ForceMappingCurve)_CFG_HIGHTOM_FORCE_CURVE_TYPE);
+//  Pad insts:   adc_group , adc_ch, out_port          		 , out_pin           , pad_id         , hit_threshold           						         , upper_limit(MaxF), force_curve
+Pad OpenHiHat 	(Pad::ADC_1, 0     , OPENHIHAT_OUT_GPIO_Port , OPENHIHAT_OUT_Pin , Pad::OpenHiHat , (_CFG_OPHIHAT_HIT_THRESHOLD + 1.2 * HIT_THRESHOLD_OFFSET), _CFG_OPHIHAT_MAXF, (Pad::ForceMappingCurve)_CFG_OPHIHAT_FORCE_CURVE_TYPE);
+Pad CloseHiHat	(Pad::ADC_1, 1     , CLOSEHIHAT_OUT_GPIO_Port, CLOSEHIHAT_OUT_Pin, Pad::CloseHiHat, (_CFG_CLHIHAT_HIT_THRESHOLD + 1.2 * HIT_THRESHOLD_OFFSET), _CFG_CLHIHAT_MAXF, (Pad::ForceMappingCurve)_CFG_CLHIHAT_FORCE_CURVE_TYPE);
+Pad Crash	  	(Pad::ADC_1, 2     , CRASH_OUT_GPIO_Port	 , CRASH_OUT_Pin	 , Pad::Crash	  , (_CFG_CRASH_HIT_THRESHOLD   + 0.8 * HIT_THRESHOLD_OFFSET), _CFG_CRASH_H_MAXF, (Pad::ForceMappingCurve)_CFG_CRASH_FORCE_CURVE_TYPE  );
+Pad Ride		(Pad::ADC_1, 3     , RIDE_OUT_GPIO_Port		 , RIDE_OUT_Pin		 , Pad::Ride	  , (_CFG_RIDE_HIT_THRESHOLD	+ 0.8 * HIT_THRESHOLD_OFFSET), _CFG_RIDE_MAXF   , (Pad::ForceMappingCurve)_CFG_RIDE_FORCE_CURVE_TYPE   );
+Pad SideStick	(Pad::ADC_2, 0     , SIDESTICK_OUT_GPIO_Port , SIDESTICK_OUT_Pin , Pad::SideStick , (_CFG_SSTK_HIT_THRESHOLD    + 1.2 * HIT_THRESHOLD_OFFSET), _CFG_SSTK_MAXF   , (Pad::ForceMappingCurve)_CFG_SSTK_FORCE_CURVE_TYPE   );
+Pad Kick		(Pad::ADC_2, 1     , KICK_OUT_GPIO_Port		 , KICK_OUT_Pin		 , Pad::Kick	  , (_CFG_KICK_HIT_THRESHOLD	+ 0.7 * HIT_THRESHOLD_OFFSET), _CFG_KICK_MAXF   , (Pad::ForceMappingCurve)_CFG_KICK_FORCE_CURVE_TYPE   );
+Pad Snare		(Pad::ADC_2, 2     , SNARE_OUT_GPIO_Port	 , SNARE_OUT_Pin	 , Pad::Snare	  , (_CFG_SNARE_HIT_THRESHOLD   + 1.0 * HIT_THRESHOLD_OFFSET), _CFG_SNARE_MAXF  , (Pad::ForceMappingCurve)_CFG_SNARE_FORCE_CURVE_TYPE  );
+Pad MidTom		(Pad::ADC_3, 0     , MT_OUT_GPIO_Port		 , MT_OUT_Pin		 , Pad::MidTom	  , (_CFG_MIDTOM_HIT_THRESHOLD  + 1.2 * HIT_THRESHOLD_OFFSET), _CFG_MIDTOM_MAXF , (Pad::ForceMappingCurve)_CFG_MIDTOM_FORCE_CURVE_TYPE );
+Pad LowTom		(Pad::ADC_3, 1     , LT_OUT_GPIO_Port		 , LT_OUT_Pin		 , Pad::LowTom	  , (_CFG_LOWTOM_HIT_THRESHOLD  + 1.2 * HIT_THRESHOLD_OFFSET), _CFG_LOWTOM_MAXF , (Pad::ForceMappingCurve)_CFG_LOWTOM_FORCE_CURVE_TYPE );
+Pad HighTom		(Pad::ADC_3, 2     , HT_OUT_GPIO_Port		 , HT_OUT_Pin		 , Pad::HighTom	  , (_CFG_HIGHTOM_HIT_THRESHOLD + 1.2 * HIT_THRESHOLD_OFFSET), _CFG_HIGHTOM_MAXF, (Pad::ForceMappingCurve)_CFG_HIGHTOM_FORCE_CURVE_TYPE);
 /**
  * @note To reduce interference in the same ADC group,
  * the sampling time of ADC channels should be set to 480 cycles.
