@@ -218,5 +218,10 @@ uint8_t Pad::_force_map(uint16_t adc_val) {
     }
 
     temp = ((temp >= 126.5) ? 127 : temp);
+    if (_CFG_FORBID_LOW_VELOCITY) {
+        if (temp < _CFG_LOW_VELOCITY_THRESHOLD) {
+            temp = _CFG_LOW_VELOCITY_THRESHOLD;
+        }
+    }
     return (uint8_t)temp;
 }

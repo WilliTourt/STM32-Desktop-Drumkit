@@ -20,23 +20,23 @@
  * @brief Global offset applied to all pad hit thresholds
  * @note Value range: 0-4095 (12-bit ADC range)
  */
-#define _CFG_HIT_THRESHOLD_OFFSET 300
+#define _CFG_HIT_THRESHOLD_OFFSET 150
 
 /**
  * @brief Individual pad hit thresholds (ADC values)
  * @note Values should be above noise level but below max playing force
  * @note Typical range: 300-2000 (12-bit ADC)
  */
-#define _CFG_OPHIHAT_HIT_THRESHOLD 999   // Open Hi-Hat
-#define _CFG_CLHIHAT_HIT_THRESHOLD 605   // Closed Hi-Hat 
-#define _CFG_CRASH_HIT_THRESHOLD   445   // Crash Cymbal
-#define _CFG_RIDE_HIT_THRESHOLD	   383   // Ride Cymbal
-#define _CFG_SSTK_HIT_THRESHOLD    1633  // Side Stick
-#define _CFG_KICK_HIT_THRESHOLD	   1667  // Kick Drum
-#define _CFG_SNARE_HIT_THRESHOLD   1573  // Snare Drum
-#define _CFG_MIDTOM_HIT_THRESHOLD  989   // Mid Tom
-#define _CFG_LOWTOM_HIT_THRESHOLD  1281  // Low Tom
-#define _CFG_HIGHTOM_HIT_THRESHOLD 1367  // High Tom
+#define _CFG_OPHIHAT_HIT_THRESHOLD 1013  // Open Hi-Hat
+#define _CFG_CLHIHAT_HIT_THRESHOLD 602   // Closed Hi-Hat 
+#define _CFG_CRASH_HIT_THRESHOLD   432   // Crash Cymbal
+#define _CFG_RIDE_HIT_THRESHOLD	   365   // Ride Cymbal
+#define _CFG_SSTK_HIT_THRESHOLD    1650  // Side Stick
+#define _CFG_KICK_HIT_THRESHOLD	   1658  // Kick Drum
+#define _CFG_SNARE_HIT_THRESHOLD   1587  // Snare Drum
+#define _CFG_MIDTOM_HIT_THRESHOLD  959   // Mid Tom
+#define _CFG_LOWTOM_HIT_THRESHOLD  1287  // Low Tom
+#define _CFG_HIGHTOM_HIT_THRESHOLD 1378  // High Tom
 
 // =============================================
 // Pad Upper Limit Settings
@@ -47,16 +47,16 @@
  * @note Used for velocity/force mapping to MIDI (0-127)
  * @note Should be set to typical maximum playing force
  */
-#define _CFG_OPHIHAT_MAXF 2084  // Open Hi-Hat
-#define _CFG_CLHIHAT_MAXF 2330  // Closed Hi-Hat
-#define _CFG_CRASH_H_MAXF 2801  // Crash Cymbal
-#define _CFG_RIDE_MAXF    1527  // Ride Cymbal
+#define _CFG_OPHIHAT_MAXF 1889  // Open Hi-Hat
+#define _CFG_CLHIHAT_MAXF 1649  // Closed Hi-Hat
+#define _CFG_CRASH_H_MAXF 2155  // Crash Cymbal
+#define _CFG_RIDE_MAXF    792   // Ride Cymbal
 #define _CFG_SSTK_MAXF    4095  // Side Stick
-#define _CFG_KICK_MAXF    3147  // Kick Drum
-#define _CFG_SNARE_MAXF   2277  // Snare Drum
-#define _CFG_MIDTOM_MAXF  3485  // Mid Tom
-#define _CFG_LOWTOM_MAXF  3273  // Low Tom
-#define _CFG_HIGHTOM_MAXF 3365  // High Tom
+#define _CFG_KICK_MAXF    2140  // Kick Drum
+#define _CFG_SNARE_MAXF   2174  // Snare Drum
+#define _CFG_MIDTOM_MAXF  3254  // Mid Tom
+#define _CFG_LOWTOM_MAXF  2647  // Low Tom
+#define _CFG_HIGHTOM_MAXF 2791  // High Tom
 
 // =============================================
 // Force Mapping Curve Settings
@@ -73,11 +73,30 @@
 #define _CFG_CRASH_FORCE_CURVE_TYPE   0  // Crash Cymbal
 #define _CFG_RIDE_FORCE_CURVE_TYPE    0  // Ride Cymbal
 #define _CFG_SSTK_FORCE_CURVE_TYPE    0  // Side Stick
-#define _CFG_KICK_FORCE_CURVE_TYPE    0  // Kick Drum
-#define _CFG_SNARE_FORCE_CURVE_TYPE   0  // Snare Drum
+#define _CFG_KICK_FORCE_CURVE_TYPE    2  // Kick Drum
+#define _CFG_SNARE_FORCE_CURVE_TYPE   2  // Snare Drum
 #define _CFG_MIDTOM_FORCE_CURVE_TYPE  0  // Mid Tom
 #define _CFG_LOWTOM_FORCE_CURVE_TYPE  0  // Low Tom
 #define _CFG_HIGHTOM_FORCE_CURVE_TYPE 0  // High Tom
+
+// =============================================
+// General Pad Settings
+// =============================================
+
+/**
+ * @brief Time window for force measurement in milliseconds
+ * @note Longer windows capture more of the hit but increase latency
+ */
+#define _CFG_PAD_MEASURING_WINDOW_MS 18
+
+/**
+ * @brief When true, set the velocity to _CFG_LOW_VELOCITY_THRESHOLD 
+ *        if uint8_t Pad::_force_map(uint16_t adc_val) tend to return
+ *        a value below _CFG_LOW_VELOCITY_THRESHOLD.
+ */
+#define _CFG_FORBID_LOW_VELOCITY true
+
+#define _CFG_LOW_VELOCITY_THRESHOLD 50
 
 // =============================================
 // Button Settings
@@ -103,16 +122,6 @@
  * @brief Maximum time between clicks for multi-click detection (ms)
  */
 #define _CFG_BUTTON_MULTICLICK_MAXTIME_MS  900
-
-// =============================================
-// General Pad Settings
-// =============================================
-
-/**
- * @brief Time window for force measurement in milliseconds
- * @note Longer windows capture more of the hit but increase latency
- */
-#define _CFG_PAD_MEASURING_WINDOW_MS 18
 
 // =============================================
 // General MIDI Settings
