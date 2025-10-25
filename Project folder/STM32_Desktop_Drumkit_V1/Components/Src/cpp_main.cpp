@@ -19,6 +19,8 @@
  * - 2025-09-14: V1 plan complete, file created
  * - 2025-10-13: V1.0.0 release
  * - 2025.10-20: Added a config header file for all configuration constants
+ * - 2025.10-21: Added buzzer class support
+ * - 2025.10.25: Added _CFG_FORBID_LOW_VELOCITY option to optimize low velocity detection
  * 
  */
 
