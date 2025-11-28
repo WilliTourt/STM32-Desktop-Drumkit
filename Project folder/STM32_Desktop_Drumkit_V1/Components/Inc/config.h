@@ -20,23 +20,23 @@
  * @brief Global offset applied to all pad hit thresholds
  * @note Value range: 0-4095 (12-bit ADC range)
  */
-#define _CFG_HIT_THRESHOLD_OFFSET 115
+#define _CFG_HIT_THRESHOLD_OFFSET 140
 
 /**
  * @brief Individual pad hit thresholds (ADC values)
  * @note Values should be above noise level but below max playing force
  * @note Typical range: 300-2000 (12-bit ADC)
  */
-#define _CFG_OPHIHAT_HIT_THRESHOLD 1013  // Open Hi-Hat
-#define _CFG_CLHIHAT_HIT_THRESHOLD 602   // Closed Hi-Hat 
-#define _CFG_CRASH_HIT_THRESHOLD   432   // Crash Cymbal
-#define _CFG_RIDE_HIT_THRESHOLD	   365   // Ride Cymbal
-#define _CFG_SSTK_HIT_THRESHOLD    1650  // Side Stick
-#define _CFG_KICK_HIT_THRESHOLD	   1658  // Kick Drum
-#define _CFG_SNARE_HIT_THRESHOLD   1587  // Snare Drum
-#define _CFG_MIDTOM_HIT_THRESHOLD  959   // Mid Tom
-#define _CFG_LOWTOM_HIT_THRESHOLD  1287  // Low Tom
-#define _CFG_HIGHTOM_HIT_THRESHOLD 1378  // High Tom
+#define _CFG_OPHIHAT_HIT_THRESHOLD 960   // Open Hi-Hat
+#define _CFG_CLHIHAT_HIT_THRESHOLD 732   // Closed Hi-Hat 
+#define _CFG_CRASH_HIT_THRESHOLD   631   // Crash Cymbal
+#define _CFG_RIDE_HIT_THRESHOLD	   604   // Ride Cymbal
+#define _CFG_SSTK_HIT_THRESHOLD    1410  // Side Stick
+#define _CFG_KICK_HIT_THRESHOLD	   1500  // Kick Drum
+#define _CFG_SNARE_HIT_THRESHOLD   1488  // Snare Drum
+#define _CFG_MIDTOM_HIT_THRESHOLD  1024  // Mid Tom
+#define _CFG_LOWTOM_HIT_THRESHOLD  1161  // Low Tom
+#define _CFG_HIGHTOM_HIT_THRESHOLD 1288  // High Tom
 
 // =============================================
 // Pad Upper Limit Settings
@@ -47,16 +47,16 @@
  * @note Used for velocity/force mapping to MIDI (0-127)
  * @note Should be set to typical maximum playing force
  */
-#define _CFG_OPHIHAT_MAXF 1889  // Open Hi-Hat
-#define _CFG_CLHIHAT_MAXF 1649  // Closed Hi-Hat
-#define _CFG_CRASH_H_MAXF 2155  // Crash Cymbal
-#define _CFG_RIDE_MAXF    792   // Ride Cymbal
+#define _CFG_OPHIHAT_MAXF 1579  // Open Hi-Hat
+#define _CFG_CLHIHAT_MAXF 1491  // Closed Hi-Hat
+#define _CFG_CRASH_H_MAXF 2095  // Crash Cymbal
+#define _CFG_RIDE_MAXF    1078  // Ride Cymbal
 #define _CFG_SSTK_MAXF    4095  // Side Stick
-#define _CFG_KICK_MAXF    2140  // Kick Drum
-#define _CFG_SNARE_MAXF   2174  // Snare Drum
-#define _CFG_MIDTOM_MAXF  3254  // Mid Tom
-#define _CFG_LOWTOM_MAXF  2647  // Low Tom
-#define _CFG_HIGHTOM_MAXF 2791  // High Tom
+#define _CFG_KICK_MAXF    1940  // Kick Drum
+#define _CFG_SNARE_MAXF   1847  // Snare Drum
+#define _CFG_MIDTOM_MAXF  3005  // Mid Tom
+#define _CFG_LOWTOM_MAXF  2249  // Low Tom
+#define _CFG_HIGHTOM_MAXF 2421  // High Tom
 
 // =============================================
 // Force Mapping Curve Settings
