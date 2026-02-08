@@ -163,9 +163,9 @@ class UI {
          * @brief Get current settings status
          * @return true if enabled, false otherwise
          */
-        bool isLedEffectsEnabled() { return _ledEffectsEnabled; }
-        bool isBuzzerEnabled() { return _buzzerEnabled; }
-        bool isDebugLogEnabled() { return _debugLogEnabled; }
+        inline bool isLedEffectsEnabled() { return _ledEffectsEnabled; }
+        inline bool isBuzzerEnabled() { return _buzzerEnabled; }
+        inline bool isDebugLogEnabled() { return _debugLogEnabled; }
 
         // Pointers to menus
         // Menutypedef* _currentMenu; // This is managed by oled-menu internally
@@ -177,7 +177,7 @@ class UI {
         Buzzer buzzer = Buzzer();
 
     private:
-
+        
         OneButtonTiny _button = OneButtonTiny(KEY_PRESS_GPIO_Port, KEY_PRESS_Pin, true);
         OLED _oled = OLED(&hi2c1, 32); // OLED instance to draw page content
 
@@ -194,6 +194,8 @@ class UI {
 
         // Stats
         uint32_t _totalHits[Pad::PAD_NUM];
+
+        
         uint32_t _totalHitsAll;
         // uint32_t _sumForce[Pad::PAD_NUM];
         // uint8_t _avgForce[Pad::PAD_NUM];

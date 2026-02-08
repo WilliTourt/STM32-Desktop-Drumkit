@@ -1,3 +1,4 @@
+@ -1,501 +1,2 @@
 /**
   ******************************************************************************
   * @file      startup_stm32f405xx.s
@@ -499,3 +500,4 @@ g_pfnVectors:
 
    .weak      FPU_IRQHandler                  
    .thumb_set FPU_IRQHandler,Default_Handler  
+   

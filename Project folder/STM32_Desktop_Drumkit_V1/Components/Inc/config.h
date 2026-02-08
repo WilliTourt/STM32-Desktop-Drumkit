@@ -27,16 +27,16 @@
  * @note Values should be above noise level but below max playing force
  * @note Typical range: 300-2000 (12-bit ADC)
  */
-#define _CFG_OPHIHAT_HIT_THRESHOLD 960   // Open Hi-Hat
-#define _CFG_CLHIHAT_HIT_THRESHOLD 732   // Closed Hi-Hat 
-#define _CFG_CRASH_HIT_THRESHOLD   631   // Crash Cymbal
-#define _CFG_RIDE_HIT_THRESHOLD	   604   // Ride Cymbal
-#define _CFG_SSTK_HIT_THRESHOLD    1410  // Side Stick
-#define _CFG_KICK_HIT_THRESHOLD	   1500  // Kick Drum
-#define _CFG_SNARE_HIT_THRESHOLD   1488  // Snare Drum
-#define _CFG_MIDTOM_HIT_THRESHOLD  1024  // Mid Tom
-#define _CFG_LOWTOM_HIT_THRESHOLD  1161  // Low Tom
-#define _CFG_HIGHTOM_HIT_THRESHOLD 1288  // High Tom
+#define _CFG_OPHIHAT_HIT_THRESHOLD 960 +20  // Open Hi-Hat
+#define _CFG_CLHIHAT_HIT_THRESHOLD 732 +20  // Closed Hi-Hat 
+#define _CFG_CRASH_HIT_THRESHOLD   631 +20  // Crash Cymbal
+#define _CFG_RIDE_HIT_THRESHOLD	   604 +20  // Ride Cymbal
+#define _CFG_SSTK_HIT_THRESHOLD    1410+20  // Side Stick
+#define _CFG_KICK_HIT_THRESHOLD	   1520+20 // Kick Drum
+#define _CFG_SNARE_HIT_THRESHOLD   1488+20  // Snare Drum
+#define _CFG_MIDTOM_HIT_THRESHOLD  1024+20  // Mid Tom
+#define _CFG_LOWTOM_HIT_THRESHOLD  1161+20  // Low Tom
+#define _CFG_HIGHTOM_HIT_THRESHOLD 1288+20  // High Tom
 
 // =============================================
 // Pad Upper Limit Settings
@@ -52,7 +52,7 @@
 #define _CFG_CRASH_H_MAXF 2095  // Crash Cymbal
 #define _CFG_RIDE_MAXF    1078  // Ride Cymbal
 #define _CFG_SSTK_MAXF    4095  // Side Stick
-#define _CFG_KICK_MAXF    1940  // Kick Drum
+#define _CFG_KICK_MAXF    1960  // Kick Drum
 #define _CFG_SNARE_MAXF   1847  // Snare Drum
 #define _CFG_MIDTOM_MAXF  3005  // Mid Tom
 #define _CFG_LOWTOM_MAXF  2249  // Low Tom
@@ -68,16 +68,16 @@
  * @note 1: Logarithmic (softer response)
  * @note 2: Exponential (stronger response)
  */
-#define _CFG_OPHIHAT_FORCE_CURVE_TYPE 0  // Open Hi-Hat
-#define _CFG_CLHIHAT_FORCE_CURVE_TYPE 0  // Closed Hi-Hat
+#define _CFG_OPHIHAT_FORCE_CURVE_TYPE 2  // Open Hi-Hat
+#define _CFG_CLHIHAT_FORCE_CURVE_TYPE 2  // Closed Hi-Hat
 #define _CFG_CRASH_FORCE_CURVE_TYPE   0  // Crash Cymbal
-#define _CFG_RIDE_FORCE_CURVE_TYPE    0  // Ride Cymbal
-#define _CFG_SSTK_FORCE_CURVE_TYPE    0  // Side Stick
+#define _CFG_RIDE_FORCE_CURVE_TYPE    2  // Ride Cymbal
+#define _CFG_SSTK_FORCE_CURVE_TYPE    2  // Side Stick
 #define _CFG_KICK_FORCE_CURVE_TYPE    2  // Kick Drum
 #define _CFG_SNARE_FORCE_CURVE_TYPE   2  // Snare Drum
-#define _CFG_MIDTOM_FORCE_CURVE_TYPE  0  // Mid Tom
-#define _CFG_LOWTOM_FORCE_CURVE_TYPE  0  // Low Tom
-#define _CFG_HIGHTOM_FORCE_CURVE_TYPE 0  // High Tom
+#define _CFG_MIDTOM_FORCE_CURVE_TYPE  2  // Mid Tom
+#define _CFG_LOWTOM_FORCE_CURVE_TYPE  2  // Low Tom
+#define _CFG_HIGHTOM_FORCE_CURVE_TYPE 2  // High Tom
 
 // =============================================
 // General Pad Settings
