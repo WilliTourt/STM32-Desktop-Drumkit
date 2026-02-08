@@ -68,18 +68,20 @@ Video demo: [Bilibili](https://www.bilibili.com/video/BV1LE4UzUE61/)
 
 ---
 
-## Plans / Changelog (Since 2025.10.14)
+## Changelog (Since 2025.10.14)
 
-- [x] Complete documentation (2025.10.16)
-- [x] Add config.h for parameter customization (2025.10.20)
-- [x] Optimized knock recognition (2025.10.25)
+- [x] Complete documentation
+- [x] Add config.h for parameter customization
+- [x] Optimized knock recognition
+- [x] Complete DebugLog feature
+
+Below are undone features. Due to my limited time, this project is considered completed and will not be updated later
+
 - [ ] Optimize UI interface
 - [ ] Complete LED/BUZZER functionality
-- [x] Complete DebugLog feature (2025.10.20)
 - [ ] Add PadTest feature
 - [ ] Add PadSettings fine-tuning parameters
-- [ ] Add Output related features
-- [ ] Add SSTK sensor support
+- [ ] SSTK sensor support
 - [ ] Add 3D file of the base plate bracket
 ...
 
