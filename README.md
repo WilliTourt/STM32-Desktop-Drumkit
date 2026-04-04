@@ -9,6 +9,8 @@
 
 *Current Version: v1.0.3*
 
+This project is an upgraded version of my previous ESP32 drum set. Here is its repository link: [ESP32 Desktop Drumkit v0 Prototype](https://github.com/WilliTourt/ESP32-Desktop-Drumkit-v0-Prototype)
+
 STM32 Desktop Drumkit is a multifunctional electronic drumpad system based on STM32F4 microcontroller, supporting high-precision hit detection, native MIDI protocol output, real-time OLED status display, and multilevel menu human-machine interaction. The system includes 10 drum pads, using piezoelectric sensors and multi-channel ADC+DMA to achieve force detection, built-in customizable force curves (linear/logarithmic/exponential), threshold sensitivity adjustment, etc. It supports seamless connection with DAW, sound sources, electronic instruments, etc.
 
 The project includes complete hardware schematics, PCB files, firmware code, debugging documents, assembly guides, etc. This README file provides independent document links for each section, making it easy to access.
