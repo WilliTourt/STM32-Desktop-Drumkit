@@ -9,6 +9,8 @@
 
 *当前版本：v1.0.3*
 
+这个项目是我以前基于ESP32鼓组的升级版本，这是它的仓库链接: [ESP32 Desktop Drumkit v0 Prototype](https://github.com/WilliTourt/ESP32-Desktop-Drumkit-v0-Prototype)
+
 STM32 Desktop Drumkit 是一款基于 STM32 微控制器的多功能电子鼓垫系统，支持高精度击打采集、原生 MIDI 协议输出、实时 OLED 状态显示和多级菜单人机交互。系统包含 10 路鼓垫，采用压电传感器和多路 ADC+DMA 实现力度检测，内置自定义力度曲线（线性/对数/指数）、阈值灵敏度调节等。支持与 DAW、音源、电子乐器等无缝连接。
 
 项目包含完整硬件原理图、PCB文件、固件代码、调试文档、组装指南等。此README文件提供了每个部分的独立文档链接，方便查阅。
