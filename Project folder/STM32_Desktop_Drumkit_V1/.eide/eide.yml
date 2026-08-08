@@ -31,6 +31,8 @@ targets:
         - Components/Libs/oled-menu/Inc
       libList: []
     excludeList: []
+    settings:
+      debugger: cortex-debug
     toolchain: GCC
     toolchainConfigMap:
       GCC:
